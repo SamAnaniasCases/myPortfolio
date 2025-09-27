@@ -18,15 +18,18 @@ header{
     align-items: center;
     justify-content: center;
     gap: 5rem;
-    background-color: rgb(0, 0, 0, 0.8);
+    background-color: rgba(211, 206, 206, 0.8);
     backdrop-filter: blur(8px);
-    color: white;
+    color: rgb(0, 0, 0);
     border-radius: 3rem;
     padding: 0.5rem 1.5rem;
     z-index: 1000;
+    box-shadow: 0 8px 32px rgb(0, 0, 0, 0.37);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgb(255, 255, 255, 0.2);
 }
 .logo{
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.3rem;
     font-weight: 600;
     text-wrap: nowrap; /* kanang if more than 1 word makaboot ka 
@@ -42,8 +45,9 @@ header{
 }
 li a{
     position: relative;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 500;
+    
 }
 li a::before{
     position: absolute;
@@ -81,6 +85,132 @@ li a:hover::before{
     display: none;
     font-size: 2rem;
 }
+
+/* dice */
+@keyframes rolling{
+    50%{
+        transform: rotateX(455deg) rotateY(455deg);
+    }
+}
+.dice{
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 0;
+    gap: 5px;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.dice-container{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: 1s ease;
+}
+.face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 5px solid #dfdcda;
+    background: linear-gradient(145deg, #cac9c8, #fff);
+    transform-style: preserve-3d;
+}
+.face::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #cac9c8;
+    transform: translateZ(-1px);
+}
+.face::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #131210;
+
+}
+.front{
+    transform: translateZ(50px);
+}
+.back{
+    transform: rotateX(180deg) translateZ(50px);
+}
+.top{
+    transform: rotateX(90deg) translateZ(50px);
+}
+.bottom{
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.right{
+    transform: rotateY(90deg) translateZ(50px);
+}
+.left{
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.front::after{
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    background: red;
+}
+.back::after{
+    margin: -35px 0 0 -30px;
+    /* dot sa dice */
+    box-shadow: 40px 0, 
+                0 25px,
+                40px 25px,
+                0 50px,
+                40px 50px;   
+}
+.top::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 40px;
+}
+.bottom::after{
+    margin: -36px 0 0 -36px;
+    box-shadow: 26px 26px,
+                52px 52px,
+                52px 0,
+                0 52px;
+}
+.right::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 0,
+                0 40px,
+                40px 40px;
+}
+.left::after{
+    margin: -35px 0 0 -35px;
+    box-shadow: 25px 25px, 50px 50px;
+
+}
+.roll{
+    cursor: pointer;
+}
+
+/* Word Dice */
+.word-display {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    transition: opacity 0.2s ease;
+}
+.word-display.fade {
+    opacity: 0.2;
+}
+
+
 
 /* about section */
 section{
@@ -166,6 +296,10 @@ section{
 
 /* For easy edit */
 :root{
+
+    /* get the gradient here: 
+    http://gradient.shapefactory.co/ */
+
     --gradient-direct: to right;
     --gradient-start: rgb(0, 157,255);
     --gradient-end: rgb(255, 0, 255);
