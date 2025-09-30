@@ -7,12 +7,16 @@
     text-decoration: none;
     scroll-behavior: smooth;
     list-style: none;
+    
+}
+body{
+    background-color: var(--base-color);
 }
 /* header section  */
 header{
     position: fixed;
-    top: 10px;
-    left: 0;
+    top: 0;
+    left: 50%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -24,14 +28,15 @@ header{
     padding: 0.5rem 1.5rem;
     z-index: 1000;
     box-shadow: 0 7px 30px var(--box-shadow);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--base-variant);
+    transform: translateX(-50%);
+    
 }
 .logo{
     color: var(--secondary-text);
     font-size: 1.3rem;
     font-weight: 600;
-    text-wrap: nowrap; /* kanang if more than 1 word makaboot ka 
+    text-wrap: nowrap; /* kanang if more than 1                   word makaboot ka 
                         kung mo ubos ba ang excess words or dli */
     transition: 0.3s ease-in-out;
     margin-left: 3rem;
@@ -42,14 +47,16 @@ header{
 .nav-btn{
     display: flex;
     gap: 3rem;
+    padding: 0;
+    background-color: transparent;
 }
-li a{
+.nav-btn li a{
     position: relative;
     color: var(--text-color);
     font-weight: 500;
-    
+    background-color: transparent;
 }
-li a::before{
+.nav-btn li a::before{
     position: absolute;
     content: '';
     width: 0;
@@ -61,7 +68,7 @@ li a::before{
     background: linear-gradient(var(--gradient-direct), 
     var(--gradient-start), var(--gradient-end));
 }
-li a:hover::before{
+.nav-btn li a:hover::before{
     width: 100%;
 }
 .log-in{
@@ -74,6 +81,10 @@ li a:hover::before{
     transition: 0.3s ease-in-out;
     background: linear-gradient(var(--gradient-direct), 
     var(--gradient-start), var(--gradient-end));
+}
+.log-in i{
+    background: none;
+    color: black;
 }
 .loginbtn{
     font-weight: 500;
@@ -91,6 +102,36 @@ li a:hover::before{
     display: none;
     font-size: 2rem;
 }
+
+/* Darkmode & Lightmode */
+.darkmode{
+    --base-color: #1C1C1C;
+    --base-variant: rgba(24, 23, 23, 0.3);
+    --text-color: #F5E8D8;
+    --secondary-text: #DAA520;
+    --border-box: rgb(255, 255, 255);
+    --box-shadow: #424040;
+}
+.dlmode{
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0.4rem;
+    right: 8rem;
+}
+.dlmode i{
+    fill: var(--base-color);
+}
+.dlmode i:last-child{ /* the very last element */
+    display: none;
+}
+
 
 /* dice */
 @keyframes rolling{
@@ -310,7 +351,7 @@ section{
     http://gradient.shapefactory.co/ */
 
     --base-color: white;
-    --base-variant: rgb(211, 206, 206, 0.3);
+    --base-variant: rgb(211, 206, 206, 0.8);
     --text-color: #111528;
     --secondary-text: #232738;
     --border-box: black;
