@@ -11,6 +11,7 @@
 }
 body{
     background-color: var(--base-color);
+    transition: 0.5s ease-in-out;
 }
 /* header section  */
 header{
@@ -104,7 +105,7 @@ header{
 }
 
 /* Darkmode & Lightmode */
-.darkmode{
+.darkmodecss{
     --base-color: #1C1C1C;
     --base-variant: rgba(24, 23, 23, 0.3);
     --text-color: #F5E8D8;
@@ -113,8 +114,8 @@ header{
     --box-shadow: #424040;
 }
 .dlmode{
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     padding: 0;
     border-radius: 50%;
     background-color: var(--base-color);
@@ -122,14 +123,27 @@ header{
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 0.4rem;
+    top: 0.6rem;
     right: 8rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    border: 2px solid var(--border-box);
 }
 .dlmode i{
     fill: var(--base-color);
 }
-.dlmode i:last-child{ /* the very last element */
+.dlmode .fa-sun{ /* the very last element */
     display: none;
+}
+.dlmode.active .fa-moon{
+    display: none;
+}
+.dlmode.active .fa-sun{
+    display: inline;
+    color: white;
+}
+.dlmode.active{
+    background-color: black;
 }
 
 
