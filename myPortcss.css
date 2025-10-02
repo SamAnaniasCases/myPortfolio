@@ -132,13 +132,13 @@ header{
 .dlmode i{
     fill: var(--base-color);
 }
-.dlmode .fa-sun{ /* the very last element */
+.dlmode .ri-sun-fill{ 
     display: none;
 }
-.dlmode.active .fa-moon{
+.dlmode.active .ri-moon-clear-line{
     display: none;
 }
-.dlmode.active .fa-sun{
+.dlmode.active .ri-sun-fill{
     display: inline;
     color: white;
 }
