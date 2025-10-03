@@ -12,6 +12,7 @@
 body{
     background-color: var(--base-color);
     transition: 0.5s ease-in-out;
+    
 } 
 /* header section  */
 header{
@@ -44,6 +45,16 @@ header{
 }
 .logo:hover{
     transform: scale(1.1);
+}
+.nav-btn-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    gap: 2rem;  
+}
+.hlogo{
+    font-size: 1.5rem;
 }
 .nav-btn{
     display: flex;
@@ -331,7 +342,8 @@ section{
     position: relative;
     background: var(--base-variant);
     margin: 3px;
-    border-radius: 3rem;    
+    border-radius: 3rem;
+    box-shadow: 0 7px 30px var(--box-shadow);
 }
 .about{
     display: flex;
@@ -418,7 +430,7 @@ section{
     http://gradient.shapefactory.co/ */
 
     --base-color: white;
-    --base-variant: rgb(211, 206, 206, 0.8);
+    --base-variant: rgba(240, 238, 215, 0.863);
     --text-color: #111528;
     --secondary-text: #E3441B;
     --border-box: black;
