@@ -12,7 +12,7 @@
 body{
     background-color: var(--base-color);
     transition: 0.5s ease-in-out;
-}
+} 
 /* header section  */
 header{
     position: fixed;
@@ -107,7 +107,7 @@ header{
 /* Darkmode & Lightmode */
 .darkmodecss{
     --base-color: #1C1C1C;
-    --base-variant: rgba(24, 23, 23, 0.3);
+    --base-variant: rgba(44, 43, 43, 0.3);
     --text-color: #F5E8D8;
     --secondary-text: #DAA520;
     --border-box: rgb(255, 255, 255);
@@ -126,8 +126,8 @@ header{
     top: 0.6rem;
     right: 8rem;
     cursor: pointer;
-    transition: 0.5s ease-in-out;
-    border: 2px solid var(--border-box);
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--border-box);
 }
 .dlmode i{
     fill: var(--base-color);
@@ -142,10 +142,49 @@ header{
     display: inline;
     color: white;
 }
+.dlmode:hover{
+    background-color: black;
+}
+.dlmode:hover .ri-moon-clear-line{
+    color: white;
+    animation: swing 1s ease-in-out infinite;
+    transform-origin: top center;
+}
 .dlmode.active{
     background-color: black;
 }
+.dlmode.active:hover{
+    background-color: white;
+}
+.dlmode:hover .ri-sun-fill{
+    animation: spin 1s linear infinite;
+    color: black;
+}
 
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{transform: rotate(360deg);
+    }
+}
+@keyframes swing{
+    0%{ 
+        transform: rotate(0deg); 
+    }
+    25%{ 
+        transform: rotate(20deg); 
+    }
+    50%{ 
+        transform: rotate(-20deg); 
+    }
+    75%{ 
+        transform: rotate(20deg); 
+    }
+    100%{ 
+        transform: rotate(0deg); 
+    }
+}
 
 /* dice */
 @keyframes rolling{
@@ -156,7 +195,7 @@ header{
 .dice{
     display: flex;
     flex-direction: column;
-    padding: 10rem 0;
+    padding: 8rem 0 4rem;
     gap: 5px;
     left: 50%;
     align-items: center;
@@ -264,11 +303,22 @@ header{
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
     color: var(--secondary-text);
     transition: opacity 0.2s ease;
 }
 .word-display.fade {
     opacity: 0.2;
+}
+.short-tagline{
+    margin-top: 2px;
+    font-size: 1.2rem;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-color);
+    word-spacing: 5px;
+    align-items: center;
 }
 
 
@@ -279,6 +329,9 @@ section{
     padding: 8rem 12%;
     width: 100%;
     position: relative;
+    background: var(--base-variant);
+    margin: 3px;
+    border-radius: 3rem;    
 }
 .about{
     display: flex;
@@ -367,7 +420,7 @@ section{
     --base-color: white;
     --base-variant: rgb(211, 206, 206, 0.8);
     --text-color: #111528;
-    --secondary-text: #232738;
+    --secondary-text: #E3441B;
     --border-box: black;
     --box-shadow: rgb(0, 0, 0, 0.37);
 

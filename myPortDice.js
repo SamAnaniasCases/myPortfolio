@@ -2,8 +2,8 @@
 const dice = document.querySelector('.dice-container');
 const rollBtn = document.querySelector('.roll');
 const wordDisplay = document.querySelector('.word-display');
-const words = ["Hello!", "Musta!", "Bonjour!", "Ohayoo!", "Hola", "Ni Hao",
-    "Anyeong Haseyo", "Konnichiwa", "Namaste"
+const words = ["Hello!", "Musta!", "Bonjour!", "Ohayoo!", "Hola!", "Ni Hao!",
+    "Anyeong Haseyo!", "Konnichiwa!", "Namaste!"
 ];
 let shuffleInterval;
 let isRolling = false;
