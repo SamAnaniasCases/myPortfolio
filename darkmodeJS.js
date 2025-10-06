@@ -28,3 +28,17 @@ darkmodelogo.addEventListener("click", darkact);
 
 
 
+const btn_container = document.getElementById("nav-btn-container");
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    
+    if(currentScroll > lastScroll && currentScroll > 50){
+        btn_container.classList.add('collapsed');
+    }
+    else{
+        btn_container.classList.remove('collapsed');
+    }
+    lastScroll = currentScroll;
+});

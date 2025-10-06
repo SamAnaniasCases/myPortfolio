@@ -46,28 +46,80 @@ header{
 .logo:hover{
     transform: scale(1.1);
 }
+
+/* new */
 .nav-btn-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
-    gap: 2rem;  
+    gap: 2rem;
+    transition: all 0.3s ease;
+    padding: 6px 2rem;
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;
+
 }
 .hlogo{
     font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    user-select: none;
 }
 .nav-btn{
     display: flex;
     gap: 3rem;
     padding: 0;
     background-color: transparent;
+    transition: opacity 0.2s ease-in-out;
 }
 .nav-btn li a{
     position: relative;
     color: var(--text-color);
     font-weight: 500;
     background-color: transparent;
+    text-decoration: none;
 }
+.nav-btn-container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-color: var(--base-variant);
+    border-radius: 50px;
+    transition: width 0.6s ease-in-out;
+}
+.nav-btn-container.collapsed::before {
+  width: 150px;
+}
+.nav-btn-container:hover::before {
+  width: 100%; 
+}
+.nav-btn-container.collapsed .left-logo{
+    transform: translateX(235px);
+}
+.nav-btn-container.collapsed .right-logo{
+    transform: translateX(-235px);
+}
+.nav-btn-container.collapsed .nav-btn{
+    opacity: 0;
+    pointer-events: none;
+}
+.nav-btn-container:hover .left-logo{
+    transform: translateX(0) !important;
+}
+.nav-btn-container:hover .right-logo{
+    transform: translateX(0) !important;
+}
+.nav-btn-container:hover .nav-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+
 .nav-btn li a::before{
     position: absolute;
     content: '';
@@ -116,14 +168,6 @@ header{
 }
 
 /* Darkmode & Lightmode */
-.darkmodecss{
-    --base-color: #1C1C1C;
-    --base-variant: rgba(44, 43, 43, 0.3);
-    --text-color: #F5E8D8;
-    --secondary-text: #DAA520;
-    --border-box: rgb(255, 255, 255);
-    --box-shadow: #424040;
-}
 .dlmode{
     height: 30px;
     width: 30px;
@@ -424,13 +468,21 @@ section{
 
 
 /* For easy edit */
+.darkmodecss{
+    --base-color: #1C1C1C;
+    --base-variant: rgba(44, 43, 43, 0.3);
+    --text-color: #F5E8D8;
+    --secondary-text: #DAA520;
+    --border-box: rgb(255, 255, 255);
+    --box-shadow: #424040;
+}
 :root{
 
     /* get the gradient here: 
     http://gradient.shapefactory.co/ */
 
     --base-color: white;
-    --base-variant: rgba(240, 238, 215, 0.863);
+    --base-variant: rgba(219, 217, 188, 0.863);
     --text-color: #111528;
     --secondary-text: #E3441B;
     --border-box: black;
