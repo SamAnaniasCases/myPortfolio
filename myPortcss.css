@@ -1,21 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Montserrat+Alternates:wght@600;700;800&display=swap');
+
+/* For easy edit */
+.darkmodecss{
+    --base-color: #1C1C1C;
+    --base-variant: rgba(44, 43, 43, 0.3);
+    --text-color: #F5E8D8;
+    --secondary-text: #DAA520;
+    --border-box: rgb(255, 255, 255);
+    --box-shadow: #424040;
+}
+:root{
+
+    /* get the gradient here: 
+    http://gradient.shapefactory.co/ */
+    --hue: 165;
+    --first-color: hsl(var(--hue), 55%, 38%);
+    --title-color: hsl(var(--hue), 10%, 12%); 
+    --text-color: hsl(var(--hue), 8%, 28%);
+    --body-color: hsl(var(--hue), 25%, 94%);
+    --container-color: hsl(0, 0%, 100%);
+    --border-color: hsl(var(--hue), 5%, 80%);
+    --white-color: hsl(0, 0%, 100%);
+    --shadow-color: hsla(var(--hue), 60%, 20%, 0.15);
+
+    --body-font: 'Jost', sans-serif;
+    --second-font: 'Montserrat Alternates', sans-serif;
+
+    --big-front-size: 5.5rem;
+    --h1-font-size: 2.75rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --larger-font-size: 1.25rem;
+    --large-font-size: 1.125rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.8125rem;
+
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    --font-black: 800;
+
+    --transition: cubic-bezier(0.3, 0, 0.3, 1);
+
+
+    /*
+    --base-color: white;
+    --base-variant: rgba(219, 217, 188, 0.863);
+    --text-color: #111528;
+    --secondary-text: #E3441B;
+    --border-box: black;
+    --box-shadow: rgb(0, 0, 0, 0.37);
+    */
+
+    --gradient-direct: to right;
+    --gradient-start: #EF2B05;
+    --gradient-end: #F4D800;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
     scroll-behavior: smooth;
-    list-style: none;
-    
+}
+body, button, input, textarea{
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
 }
 body{
-    background-color: var(--base-color);
+    background-color: var(--body-color);
     transition: 0.5s ease-in-out;
     
+}
+h1, h2, h3, h4{
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-weight: var(--font-bold);
 } 
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+button, input, textarea{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+
 /* header section  */
-header{
+.container{
+    background-color: black;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+.header{
     position: fixed;
     top: 0;
     left: 50%;
@@ -24,7 +112,7 @@ header{
     align-items: center;
     justify-content: space-between;
     gap: 5rem;
-    background-color: var(--base-variant);
+    background-color: transparent;
     backdrop-filter: blur(8px);
     color: var(--text-color);
     padding: 0.5rem 1.5rem;
@@ -35,9 +123,10 @@ header{
     
 }
 .logo{
-    color: var(--secondary-text);
-    font-size: 1.3rem;
-    font-weight: 600;
+    color: var(--title-color);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    font-family: var(--second-font);
     text-wrap: nowrap; /* kanang if more than 1                   word makaboot ka 
                         kung mo ubos ba ang excess words or dli */
     transition: 0.3s ease-in-out;
@@ -46,6 +135,7 @@ header{
 .logo:hover{
     transform: scale(1.1);
 }
+
 
 /* new */
 .nav-btn-container{
@@ -58,6 +148,7 @@ header{
     position: relative;
     background-color: transparent;
     overflow: hidden;
+    max-width: 1540px;
 
 }
 .hlogo{
@@ -72,6 +163,9 @@ header{
     padding: 0;
     background-color: transparent;
     transition: opacity 0.2s ease-in-out;
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    font-family: var(--second-font);
 }
 .nav-btn li a{
     position: relative;
@@ -467,28 +561,3 @@ section{
 
 
 
-/* For easy edit */
-.darkmodecss{
-    --base-color: #1C1C1C;
-    --base-variant: rgba(44, 43, 43, 0.3);
-    --text-color: #F5E8D8;
-    --secondary-text: #DAA520;
-    --border-box: rgb(255, 255, 255);
-    --box-shadow: #424040;
-}
-:root{
-
-    /* get the gradient here: 
-    http://gradient.shapefactory.co/ */
-
-    --base-color: white;
-    --base-variant: rgba(219, 217, 188, 0.863);
-    --text-color: #111528;
-    --secondary-text: #E3441B;
-    --border-box: black;
-    --box-shadow: rgb(0, 0, 0, 0.37);
-
-    --gradient-direct: to right;
-    --gradient-start: #EF2B05;
-    --gradient-end: #F4D800;
-}
