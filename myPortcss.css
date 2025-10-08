@@ -2,12 +2,19 @@
 
 /* For easy edit */
 .darkmodecss{
-    --base-color: #1C1C1C;
-    --base-variant: rgba(44, 43, 43, 0.3);
-    --text-color: #F5E8D8;
-    --secondary-text: #DAA520;
-    --border-box: rgb(255, 255, 255);
-    --box-shadow: #424040;
+    --hue: 35;
+    
+    --const-color: hsl(var(--hue), 25%, 15%);
+    
+    --first-color: hsl(var(--hue), 90%, 60%);
+    --title-color: hsl(var(--hue), 25%, 90%);       
+    --text-color: hsl(var(--hue), 15%, 75%);       
+    
+    --body-color: hsl(var(--hue), 15%, 10%);       
+    --container-color: hsl(var(--hue), 10%, 15%);   
+    
+    --white-color: hsl(var(--hue), 20%, 95%);       
+    --shadow-color: hsla(var(--hue), 60%, 5%, 0.5)
 }
 :root{
 
@@ -15,14 +22,16 @@
     http://gradient.shapefactory.co/ */
     --hue: 35;
     
-    --first-color: hsl(var(--hue), 90%, 50%);       /* Accent (buttons, links) */
-  --title-color: hsl(var(--hue), 25%, 15%);       /* Strong headline text */
-  --text-color: hsl(var(--hue), 20%, 25%);        /* Normal paragraph text */
-  --body-color: hsl(var(--hue), 65%, 97%);        /* Background base */
-  --container-color: hsl(var(--hue), 70%, 99%);   /* Cards / sections */
-  --border-color: hsl(var(--hue), 50%, 60%);      /* Borders now more visible */
-  --white-color: #ffffff;
-  --shadow-color: hsla(var(--hue), 80%, 25%, 0.25);
+    --const-color: hsl(var(--hue), 25%, 15%);
+    
+    --first-color: hsl(var(--hue), 90%, 50%);       
+    --title-color: hsl(var(--hue), 25%, 15%);      
+    --text-color: hsl(var(--hue), 20%, 25%);       
+    --body-color: hsl(var(--hue), 65%, 97%);        
+    --container-color: hsl(var(--hue), 70%, 99%);   
+    --border-color: hsl(var(--hue), 50%, 60%);      
+    --white-color: #ffffff;
+    --shadow-color: hsla(var(--hue), 80%, 25%, 0.25);
 
     --body-font: 'Jost', sans-serif;
     --second-font: 'Montserrat Alternates', sans-serif;
@@ -43,17 +52,7 @@
     --font-black: 800;
 
     --transition: cubic-bezier(0.3, 0, 0.3, 1);
-
-
-    /*
-    --base-color: white;
-    --base-variant: rgba(219, 217, 188, 0.863);
-    --text-color: #111528;
-    --secondary-text: #E3441B;
-    --border-box: black;
-    --box-shadow: rgb(0, 0, 0, 0.37);
-    */
-
+    
     --gradient-direct: to right;
     --gradient-start: #EF2B05;
     --gradient-end: #F4D800;
@@ -138,43 +137,6 @@ button, input, textarea{
 }
 
 
-/*  test
-.nav-btn-container,
-.nav-btn-container::before,
-.nav-btn-container .left-logo,
-.nav-btn-container .right-logo,
-.nav-btn-container .nav-btn {
-  transition: all 0.5s ease;
-}
-
-.nav-btn-container.collapsed::before {
-  width: 150px;
-}
-.nav-btn-container.collapsed .left-logo {
-  transform: translateX(235px);
-}
-.nav-btn-container.collapsed .right-logo {
-  transform: translateX(-235px);
-}
-.nav-btn-container.collapsed .nav-btn {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.nav-btn-container:hover::before {
-  width: 100%;
-}
-.nav-btn-container:hover .left-logo,
-.nav-btn-container:hover .right-logo {
-  transform: translateX(0);
-}
-.nav-btn-container:hover .nav-btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-*/
-
-
 /* new */
 .nav-btn-container{
     display: flex;
@@ -194,6 +156,7 @@ button, input, textarea{
     cursor: pointer;
     transition: transform 0.5s ease-in-out;
     user-select: none;
+    
 }
 .nav-btn{
     display: flex;
@@ -220,7 +183,6 @@ button, input, textarea{
     transform: translateX(-50%);
     width: 100%;
     height: 100%;
-    background-color: var(--base-variant);
     border-radius: 50px;
     transition: width 0.6s ease-in-out;
 }
@@ -231,19 +193,16 @@ button, input, textarea{
   width: 100%; 
 }
 .nav-btn-container.collapsed .left-logo{
-    transform: translateX(235px);
+    transform: translateX(255px);
 }
 .nav-btn-container.collapsed .right-logo{
-    transform: translateX(-235px);
+    transform: translateX(-255px);
 }
 .nav-btn-container.collapsed .nav-btn{
     opacity: 0;
     pointer-events: none;
 }
-.nav-btn-container:hover .left-logo{
-    transform: translateX(0) !important;
-}
-.nav-btn-container:hover .right-logo{
+.nav-btn-container:hover .right-logo, .nav-btn-container:hover .left-logo{
     transform: translateX(0) !important;
 }
 .nav-btn-container:hover .nav-btn {
@@ -283,11 +242,12 @@ button, input, textarea{
     color: black;
 }
 .loginbtn{
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
     border: none;
     background: none;
     cursor: pointer;
+    color: var(--const-color);
 }
 .log-in:hover{
     transform: scale(1.03);
@@ -305,7 +265,6 @@ button, input, textarea{
     width: 30px;
     padding: 0;
     border-radius: 50%;
-    background-color: var(--base-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -314,11 +273,8 @@ button, input, textarea{
     right: 8rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    border: 1px solid var(--border-box);
 }
-.dlmode i{
-    fill: var(--base-color);
-}
+
 .dlmode .ri-sun-fill{ 
     display: none;
 }
@@ -336,9 +292,6 @@ button, input, textarea{
     color: white;
     animation: swing 1s ease-in-out infinite;
     transform-origin: top center;
-}
-.dlmode.active{
-    background-color: black;
 }
 .dlmode.active:hover{
     background-color: white;
@@ -382,6 +335,7 @@ button, input, textarea{
 .home-content{
     position: relative;
 }
+
 /* Word Dice */
 .word-display {
     margin-top: 20px;
@@ -438,18 +392,21 @@ button, input, textarea{
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    border: 5px solid #dfdcda;
-    background: linear-gradient(145deg, #cac9c8, #fff);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e1e1e1 70%, #bcbcbc 100%);
     transform-style: preserve-3d;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15),
+              inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+              0 4px 10px rgba(0, 0, 0, 0.4);
 }
 .face::before{
     position: absolute;
     content: '';
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    background: #cac9c8;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #bdbdbd, #dcdcdc);
     transform: translateZ(-1px);
 }
 .face::after{
@@ -460,7 +417,10 @@ button, input, textarea{
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #131210;
+    background: radial-gradient(circle at 30% 30%, #000 0%, #111 70%, #333 100%);
+    box-shadow:
+        inset 1px 1px 3px rgba(255, 255, 255, 0.3),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.8);
 
 }
 .front{
@@ -486,37 +446,39 @@ button, input, textarea{
     width: 30px;
     height: 30px;
     margin: -15px 0 0 -15px;
-    background: rgb(0, 0, 0);
+
 }
 .back::after{
     margin: -35px 0 0 -30px;
     /* dot sa dice */
-    box-shadow: 40px 0, 
-                0 25px,
-                40px 25px,
-                0 50px,
-                40px 50px;   
+    box-shadow: 40px 0 black, 
+                0 25px black,
+                40px 25px black,
+                0 50px black,
+                40px 50px black; 
+    
 }
 .top::after{
     margin: -30px 0 0 -30px;
-    box-shadow: 40px 40px;
+    box-shadow: 40px 40px black;
+
 }
 .bottom::after{
     margin: -36px 0 0 -36px;
-    box-shadow: 26px 26px,
-                52px 52px,
-                52px 0,
-                0 52px;
+    box-shadow: 26px 26px black,
+                52px 52px black,
+                52px 0 black,
+                0 52px black;
 }
 .right::after{
     margin: -30px 0 0 -30px;
-    box-shadow: 40px 0,
-                0 40px,
-                40px 40px;
+    box-shadow: 40px 0 black,
+                0 40px black,
+                40px 40px black;
 }
 .left::after{
     margin: -35px 0 0 -35px;
-    box-shadow: 25px 25px, 50px 50px;
+    box-shadow: 25px 25px black, 50px 50px black;
 
 }
 .roll{
@@ -562,15 +524,16 @@ section{
     gap: 1.5rem;
 }
 .about-txt h3{
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
     opacity: 0.8;
     color: var(--text-color);
 }
 .about-txt h1{
     font-size: 4rem;
     font-weight: 600;
-    color: var(--secondary-text);
+    color: var(--title-color);
+    font-family: var(--second-font);
 }
 .about-txt span{
     /* How to use background-clip */
@@ -591,13 +554,12 @@ section{
     border-radius: 3rem;
     padding: 1rem 2rem;
     cursor: pointer;
-    font-weight: var(--font-medium);
     display: inline-block;
     color: var(--title-color);
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     position: relative;
     font-weight: var(--font-bold);
-    transition: color 0.7s var(--transition);
+    transition: color 0.3s var(--transition);
 }
 .btn:hover{
     color: var(--white-color);
