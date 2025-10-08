@@ -37,7 +37,7 @@ window.addEventListener('scroll', () => {
     if(currentScroll > lastScroll && currentScroll > 50){
         btn_container.classList.add('collapsed');
     }
-    else{
+    else if (currentScroll === 0){
         btn_container.classList.remove('collapsed');
     }
     lastScroll = currentScroll;

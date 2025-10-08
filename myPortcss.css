@@ -13,15 +13,16 @@
 
     /* get the gradient here: 
     http://gradient.shapefactory.co/ */
-    --hue: 165;
-    --first-color: hsl(var(--hue), 55%, 38%);
-    --title-color: hsl(var(--hue), 10%, 12%); 
-    --text-color: hsl(var(--hue), 8%, 28%);
-    --body-color: hsl(var(--hue), 25%, 94%);
-    --container-color: hsl(0, 0%, 100%);
-    --border-color: hsl(var(--hue), 5%, 80%);
-    --white-color: hsl(0, 0%, 100%);
-    --shadow-color: hsla(var(--hue), 60%, 20%, 0.15);
+    --hue: 35;
+    
+    --first-color: hsl(var(--hue), 90%, 50%);       /* Accent (buttons, links) */
+  --title-color: hsl(var(--hue), 25%, 15%);       /* Strong headline text */
+  --text-color: hsl(var(--hue), 20%, 25%);        /* Normal paragraph text */
+  --body-color: hsl(var(--hue), 65%, 97%);        /* Background base */
+  --container-color: hsl(var(--hue), 70%, 99%);   /* Cards / sections */
+  --border-color: hsl(var(--hue), 50%, 60%);      /* Borders now more visible */
+  --white-color: #ffffff;
+  --shadow-color: hsla(var(--hue), 80%, 25%, 0.25);
 
     --body-font: 'Jost', sans-serif;
     --second-font: 'Montserrat Alternates', sans-serif;
@@ -94,15 +95,15 @@ button, input, textarea{
     outline: none;
     background-color: transparent;
 }
-
-
-/* header section  */
 .container{
-    background-color: black;
     max-width: 1320px;
     margin-inline: auto;
     padding-inline: 1.5rem;
 }
+
+
+/* header section  */
+
 .header{
     position: fixed;
     top: 0;
@@ -137,20 +138,57 @@ button, input, textarea{
 }
 
 
+/* 
+.nav-btn-container,
+.nav-btn-container::before,
+.nav-btn-container .left-logo,
+.nav-btn-container .right-logo,
+.nav-btn-container .nav-btn {
+  transition: all 0.5s ease;
+}
+
+.nav-btn-container.collapsed::before {
+  width: 150px;
+}
+.nav-btn-container.collapsed .left-logo {
+  transform: translateX(235px);
+}
+.nav-btn-container.collapsed .right-logo {
+  transform: translateX(-235px);
+}
+.nav-btn-container.collapsed .nav-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-btn-container:hover::before {
+  width: 100%;
+}
+.nav-btn-container:hover .left-logo,
+.nav-btn-container:hover .right-logo {
+  transform: translateX(0);
+}
+.nav-btn-container:hover .nav-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+*/
+
+
 /* new */
 .nav-btn-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    transition: all 0.3s ease;
     padding: 6px 2rem;
     position: relative;
     background-color: transparent;
     overflow: hidden;
     max-width: 1540px;
-
+    transition: transform 0.5s ease, opacity 0.5s ease, all 0.5s ease;
 }
+
 .hlogo{
     font-size: 1.5rem;
     cursor: pointer;
@@ -162,7 +200,7 @@ button, input, textarea{
     gap: 3rem;
     padding: 0;
     background-color: transparent;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     color: var(--title-color);
     font-weight: var(--font-bold);
     font-family: var(--second-font);
@@ -335,6 +373,45 @@ button, input, textarea{
     }
 }
 
+.section{
+    padding-block: 2rem;
+}
+.home-container{
+    padding-block: 4.25rem;
+}
+.home-content{
+    position: relative;
+}
+/* Word Dice */
+.word-display {
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-black);
+    text-align: center;
+    justify-content: center;
+    color: var(--first-color);
+    transition: opacity 0.2s ease;
+    font-family: var(--second-font);
+    text-shadow: 4px 4px var(--shadow-color);
+    -webkit-text-stroke: 2px hsl(0, 0%, 0%);
+}
+.word-display.fade {
+    opacity: 0.2;
+}
+.short-tagline{
+    margin-top: 2px;
+    font-size: var(--larger-font-size);
+    justify-content: center;
+    text-align: center;
+    font-weight: var(--font-semi-bold);
+    color: var(--text-color);
+    word-spacing: 5px;
+    align-items: center;
+    margin-block: 1.5rem 2.5rem;
+    max-width: 520px;
+}
+
 /* dice */
 @keyframes rolling{
     50%{
@@ -446,29 +523,7 @@ button, input, textarea{
     cursor: pointer;
 }
 
-/* Word Dice */
-.word-display {
-    margin-top: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    color: var(--secondary-text);
-    transition: opacity 0.2s ease;
-}
-.word-display.fade {
-    opacity: 0.2;
-}
-.short-tagline{
-    margin-top: 2px;
-    font-size: 1.2rem;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    color: var(--text-color);
-    word-spacing: 5px;
-    align-items: center;
-}
+
 
 
 
@@ -531,16 +586,38 @@ section{
     justify-content: center;
 }
 .btn{
-    border: 2px solid var(--border-box);
+    border: 2px solid var(--border-color);
+    box-shadow: 4px 4px var(--shadow-color);
     border-radius: 3rem;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 2rem;
     cursor: pointer;
-    font-weight: 500;
-    transition: 0.2s ease-in-out;
+    font-weight: var(--font-medium);
+    display: inline-block;
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    position: relative;
+    font-weight: var(--font-bold);
+    transition: color 0.7s var(--transition);
 }
 .btn:hover{
-    background-color: var(--border-box);
-    color: var(--base-color);
+    color: var(--white-color);
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: var(--first-color);
+    border-radius: inherit;
+    transform: scale(0.3);
+    filter: blur(10px);
+    opacity: 0;
+    z-index: -10;
+    transition: all 0.7s var(--transition);
+}
+.btn:hover::before{
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
 }
 .about-socials{
     display: flex;
