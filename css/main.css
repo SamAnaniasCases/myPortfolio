@@ -11,7 +11,7 @@
     --title-color: hsl(var(--hue), 25%, 90%);       
     --text-color: hsl(var(--hue), 15%, 75%);       
     
-    --body-color: hsl(var(--hue), 15%, 10%);       
+    --body-color: hsl(var(--hue), 85%, 92%);      
     --container-color: hsl(var(--hue), 10%, 15%);   
     
     --white-color: hsl(var(--hue), 20%, 95%);       
@@ -27,9 +27,11 @@
     
     --first-color: hsl(var(--hue), 90%, 50%);       
     --title-color: hsl(var(--hue), 25%, 15%);      
-    --text-color: hsl(var(--hue), 20%, 25%);       
+    --text-color: hsl(var(--hue), 20%, 25%);
+
     --body-color: hsl(var(--hue), 65%, 97%);        
-    --container-color: hsl(var(--hue), 70%, 99%);   
+    --container-color: hsl(var(--hue), 70%, 99%);
+
     --border-color: hsl(var(--hue), 50%, 60%);      
     --white-color: #ffffff;
     --shadow-color: hsla(var(--hue), 80%, 25%, 0.25);
@@ -99,6 +101,21 @@ button, input, textarea{
     max-width: 1320px;
     margin-inline: auto;
     padding-inline: 1.5rem;
+}
+.section{
+    padding-block: 2rem;
+}
+.section-title{
+    font-size: var(--h1-font-size);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+.section-title::after{
+    content: attr(data-title);
+    display: block;
+    color: var(--first-color);
+    font-family: var(--body-font);
+    font-size: var(--large-font-size);
 }
 
 
@@ -327,9 +344,6 @@ button, input, textarea{
     }
 }
 
-.section{
-    padding-block: 2rem;
-}
 .home-container{
     padding-block: 4.25rem;
 }
@@ -595,6 +609,8 @@ section{
 .about-socials i:hover{
     transform: scale(1.1);
 }
+
+
 
  
 
