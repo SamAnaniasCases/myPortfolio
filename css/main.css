@@ -152,7 +152,7 @@ button, input, textarea{
     text-wrap: nowrap; /* kanang if more than 1                   word makaboot ka 
                         kung mo ubos ba ang excess words or dli */
     transition: 0.3s ease-in-out;
-    margin-left: 3rem;
+    margin-left: 1.5rem;
 }
 .logo:hover{
     transform: scale(1.1);
