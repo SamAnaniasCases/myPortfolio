@@ -1,6 +1,6 @@
 var expSwiper = new Swiper('.exp-swiper', {
     spaceBetween: 32, /* gap */
-
+    
     pagination: {
         el: '.swiper-pagination', /* katong button */
         clickable: true,

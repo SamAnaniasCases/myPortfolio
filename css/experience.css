@@ -3,9 +3,36 @@
     padding: 2rem 2.25rem;
     border-radius: 1.25rem;
     position: relative;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    overflow: hidden;
+    overflow: visible;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.3s ease;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px hsla(var(--hue), 85%, 20%, 0.3);
+}
+.exp-swiper {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 98%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 98%, transparent);
+}
+.swiper-wrapper {
+  overflow: visible !important;
+  padding-bottom: 1.5rem;
+}
+.swiper-slide-active .card {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 20px var(--shadow-color);
+}
+
+.swiper-slide {
+  overflow: visible !important;
+}
+
+
+
+
 .card::before{
     content: '';
     position: absolute;
@@ -40,6 +67,8 @@
 .link:hover .link-icon{
     transform: translateX(-0.5rem);
 }
+
+
 .swiper-pagination{
     position: initial;
     margin-top: 3rem;
@@ -71,3 +100,4 @@
     transform: scale(1.7);
     border-width: 1px;
 }
+
