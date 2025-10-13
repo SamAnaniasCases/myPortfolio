@@ -1,0 +1,175 @@
+.portfolio-tabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 15px;
+    margin-bottom: 85px;
+
+}
+
+.portfolio-tabs .tab-btn{
+    color: var(--text-color);
+    font-size: var(--large-font-size);
+    font-weight: var(--font-medium);
+    padding: 12px 0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.portfolio-tabs .tab-btn:hover{
+    color: var(--gradient-start);
+
+}
+.portfolio-tabs .tab-btn.active{
+    color: var(--first-color);
+    background: var(--container-color);
+    padding: 12px 25px;
+    border: 2px solid var(--border-color);
+    box-shadow: 4px 4px var(--shadow-color);
+}
+.portfolio-tabs .tab-btn.active:hover{
+    color: var(--title-color);
+    background: linear-gradient(var(--gradient-direct), var(--gradient-start), var(--gradient-end));
+}
+
+.portfolio-container{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 55px;
+}
+.portfolio-container .card-with-modal{
+    display: block;
+}
+.portfolio-container .card-with-modal.hidden{
+    display: none;
+}
+
+.portfolio-card{
+    position: relative;
+    background: var(--container-color);
+    width: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    box-shadow: 6px 4px 12px var(--shadow-color);
+}
+.portfolio-card .card-img{
+    width: 100%;
+}
+.portfolio-card .card-img img{
+    width: 100%;
+}
+.portfolio-card .card-info{
+    position: relative;
+    padding: 10px 15px 20px 20px;
+}
+.portfolio-card .card-info span{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--normal-font-size);
+    text-transform: uppercase;
+}
+.portfolio-card .card-info h4{
+    color: var(--title-color);
+    font-size: var(--font-medium);
+    font-weight: var(--font-semi-bold);
+    margin-top: 5px;
+}
+.portfolio-card .card-info i{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: var(--text-color);
+    font-size: 1.7rem;
+    margin: 15px;
+    transform: scale(0);
+    transition: 0.3s;
+}
+.portfolio-card:hover .card-info i{
+    transform: scale(1);
+}
+
+.portfolio-modal-backdrop{
+    z-index: 1110;
+    position: fixed;
+    background: var(--body-color);
+    backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    overflow-y: auto;
+    display: flex;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+}
+.portfolio-modal-backdrop.active{
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.portfolio-modal-backdrop::-webkit-scrollbar{
+    background: hsl(var(--hue) 25% 20%);
+    width: 8px;
+    border-radius: 5px;
+}
+.portfolio-modal-backdrop::-webkit-scrollbar-thumb{
+    background: var(--first-color);
+    border-radius: 5px;
+}
+.portfolio-modal-backdrop::-webkit-scrollbar-thumb:hover{
+    background: var(--shadow-color);
+}
+
+.portfolio-modal{
+    position: relative;
+    background: var(--container-color);
+    max-width: 900px;
+    height: fit-content;
+    margin: 75px 25px;
+    padding: 50px 45px;
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(0); 
+}
+.portfolio-modal.active{
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.portfolio-modal .modal-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.portfolio-modal .modla-img{
+    width: 100%;
+}
+
+.portfolio-modal .modla-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.portfolio-modal .modal-content .modal-title{
+    color: var(--title-color);
+    font-size: var(--larger-font-size);
+    font-weight: var(--font-semi-bold);
+}
+
+.portfolio-modal .modal-content .description{
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+}
+

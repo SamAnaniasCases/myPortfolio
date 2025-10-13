@@ -38,6 +38,11 @@
     --border-color: hsl(var(--hue), 30%, 70%);      
     --white-color: #ffffff;
     --shadow-color: hsla(var(--hue), 80%, 15%, 0.2);
+    --hover-color: hsl(var(--hue), 90%, 85%);
+
+    --gradient-direct: to right;
+    --gradient-start: #EF2B05;
+    --gradient-end: #F4D800;
 
     --body-font: 'Jost', sans-serif;
     --second-font: 'Montserrat Alternates', sans-serif;
@@ -59,9 +64,7 @@
 
     --transition: cubic-bezier(0.3, 0, 0.3, 1);
     
-    --gradient-direct: to right;
-    --gradient-start: #EF2B05;
-    --gradient-end: #F4D800;
+    
 }
 
 *{
@@ -138,6 +141,25 @@ button, input, textarea{
     color: var(--first-color);
     font-family: var(--body-font);
     font-size: var(--large-font-size);
+}
+.sue-section{
+    position: relative;
+    overflow: hidden;
+}
+.sue-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.sue-sub-container{
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+}
+.section-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 75px;
 }
 
 
