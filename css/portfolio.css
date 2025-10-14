@@ -97,7 +97,7 @@
 .portfolio-modal-backdrop{
     z-index: 1110;
     position: fixed;
-    background: var(--body-color);
+    background: var(--glass-color);
     backdrop-filter: blur(10px);
     top: 0;
     left: 0;
