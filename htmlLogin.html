@@ -19,6 +19,9 @@
 <body>
     <section class="secLogin" id="seclogin">
         <div class="loginContainer">
+
+            
+            
             <div class="form-box login">
                 <form action="">
                     <h1>Login</h1>
@@ -45,9 +48,58 @@
                     </div>
                 </form>
             </div>
-        </div>
 
+            
+
+            <div class="form-box register">
+                <form action="">
+                    <h1>Registration</h1>
+                    <div class="input-box">
+                        <input type="text" placeholder="Username" required>
+                        <i class="ri-user-fill"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" placeholder="Email" required>
+                        <i class="ri-mail-fill"></i>   
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Password" required>
+                        <i class="ri-lock-2-fill"></i>
+                    </div>
+            
+                    <button type="submit" class="btnLogin">Register</button>
+                    <p>or register with social platforms</p>
+                    <div class="social-icons">
+                        <a href=""><i class="ri-google-fill"></i></a>
+                        <a href=""><i class="ri-facebook-circle-fill"></i></a>
+                        <a href=""><i class="ri-github-fill"></i></a>
+        
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="toggle-box">
+                <div class="toggle-panel toggle-left">
+                    <i class="ri-home-5-line home-button"></i>
+                    <h1>Hello, Welcome to <br> your Cogito</h1>
+                    <p>Don't have an account?</p>
+                    <button class="btnLogin register-btn">Register</button>
+                </div>
+
+                <div class="toggle-panel toggle-right">
+                    <i class="ri-home-5-line home-button"></i>
+                    <h1>Welcome Back Cogito!</h1>
+                    <p>Already have an account?</p>
+                    <button class="btnLogin login-btn">Login</button>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <script src="JS/forLogin.js"></script>
     
 </body>
 </html>

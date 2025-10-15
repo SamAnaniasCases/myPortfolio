@@ -1,9 +1,15 @@
+section{
+    padding: 0;
+}
+
+/* --- 1. Layout & Container Styles --- */
+
 .secLogin{
     display: flex;
     background: var(--body-color);
     align-items: center;
     justify-content: center;
-    min-height: 110vh;
+    min-height: 90vh;
 }
 
 .loginContainer{
@@ -13,6 +19,7 @@
     background: var(--container-color);
     border-radius: 30px;
     box-shadow: 0 0 30px var(--shadow-color);
+    overflow: hidden;
 }
 .loginContainer h1{
     font-size: var(--h1-font-size);
@@ -23,6 +30,9 @@
     margin: 15px 0;
 }
 
+
+/* --- 2. Form Box (Login/Register Screens) --- */
+
 .form-box{
     position: absolute;
     right: 0;
@@ -32,11 +42,33 @@
     align-items: center;
     color: var(--text-color);
     text-align: center;
-    background: var(--bg-color);
+    background: var(--container-color);
+    padding: 40px;
+    z-index: 1;
+    transition: transform 0.6s ease-in-out;
+    transform: translateX(0); 
 }
 
+.form-box.register{
+    transform: translateX(-100%);
+    left: 0; 
+    right: auto;
+}
+
+/* --- 3. Active (Sliding) States --- */
+
+.loginContainer.active .form-box{
+    transform: translateX(-100%);
+}
+
+.loginContainer.active .form-box.register{
+    transform: translateX(0);
+}
+
+/* --- 4. Form Elements --- */
+
 form{
-    background: var(--bg-color);
+    background: var(--container-color);
     width: 100%;
 }
 
@@ -77,6 +109,8 @@ form{
     text-decoration: none;
 }
 
+/* --- 5. Buttons and Social Icons --- */
+
 .btnLogin{
     width: 100%;
     height: 48px;
@@ -88,6 +122,7 @@ form{
     color: var(--text-color);
     font-weight: var(--font-semi-bold);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .social-icons a{
@@ -101,5 +136,97 @@ form{
     margin: 0 8px;
 }
 
+/* --- 6. Toggle Panel System --- */
 
+.toggle-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.toggle-box::before{
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 2;
+    left: -250%;
+    border-radius: 150px;
+    transition: 0.8s ease-in-out;
+}
+.loginContainer.active .toggle-box::before{
+    left: 50%;
+}
 
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--title-color); 
+    z-index: 3;
+    transition: transform 0.6s ease-in-out;
+}
+
+.toggle-panel.toggle-left{
+    left: 0;
+    transform: translateX(0);
+}
+.loginContainer.active .toggle-panel.toggle-left{
+    transform: translateX(-200%); 
+}
+
+.toggle-panel.toggle-right{
+    right: 0;
+    transform: translateX(200%); 
+}
+.loginContainer.active .toggle-panel.toggle-right{
+    transform: translateX(0);
+}
+
+.toggle-panel h1{
+    font-size: var(--h3-font-size);
+    text-align: center;
+    margin: 2px;
+}
+
+.toggle-panel p{
+    margin-bottom: 20px;
+}
+
+.toggle-panel .btnLogin{
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+}
+
+.home-button {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: var(--bg-color); 
+    color: var(--title-color);
+    text-decoration: none;
+    font-weight: var(--font-semi-bold);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    font-size: var(--larger-font-size);
+}
+
+.home-button:hover {
+    color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.loginContainer.active .home-button{
+    transform: translateX(500%);
+}

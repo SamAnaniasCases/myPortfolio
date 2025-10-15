@@ -104,6 +104,7 @@
     width: 100%;
     height: 100vh;
     justify-content: center;
+    align-items: center;
     overflow-y: auto;
     display: flex;
     display: none;
@@ -172,4 +173,6 @@
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
 }
+
+
 
