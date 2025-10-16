@@ -20,24 +20,24 @@
     <section class="secLogin" id="seclogin">
         <div class="loginContainer">
 
-            
-            
+            <!-- ===== LOGIN ===== -->
             <div class="form-box login">
-                <form action="">
+                <form action="login.php" method="POST">
                     <h1>Login</h1>
                     <div class="input-box">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Username" name="name" required>
                         <i class="ri-user-fill"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" name="password" required>
                         <i class="ri-lock-2-fill"></i>
                     </div>
                     <div class="forgot-link">
                         <a href="">Forgot Password?</a>
                     </div>
-                    <button type="submit" class="btnLogin">Login</button>
+
+                    <button type="submit" class="btnLogin" name="login">Login</button>
                     <p>or login with social platforms</p>
                     <div class="social-icons">
                         <a href=""><i class="ri-google-fill"></i></a>
@@ -49,27 +49,30 @@
                 </form>
             </div>
 
-            
+
+
+
+            <!-- ===== REGISTRATION FORM ===== -->
 
             <div class="form-box register">
-                <form action="">
+                <form action="register.php" method="POST">
                     <h1>Registration</h1>
                     <div class="input-box">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Username" name="name" required>
                         <i class="ri-user-fill"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" placeholder="Email" name="email" required>
                         <i class="ri-mail-fill"></i>   
                     </div>
 
                     <div class="input-box">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" name="password" required>
                         <i class="ri-lock-2-fill"></i>
                     </div>
             
-                    <button type="submit" class="btnLogin">Register</button>
+                    <button type="submit" class="btnLogin" name="register">Register</button>
                     <p>or register with social platforms</p>
                     <div class="social-icons">
                         <a href=""><i class="ri-google-fill"></i></a>
