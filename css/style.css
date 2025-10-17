@@ -1,13 +1,34 @@
-/*  ====================
-        FONTS IMPORT 
-    ==================== */
+/* ==============================================
+   IMPORT FONTS
+   ============================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Montserrat+Alternates:wght@600;700;800&display=swap');
 
 
-/*  ====================
-        VARIABLES 
-    ==================== */
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes swing {
+  0%,100% { transform: rotate(0deg); }
+  25%,75% { transform: rotate(20deg); }
+  50% { transform: rotate(-20deg); }
+}
+
+/* --- DICE ANIMATION --- */
+@keyframes rolling{
+    50%{
+        transform: rotateX(455deg) rotateY(455deg);
+    }
+}
+
+
+/* ==============================================
+   VARIABLES
+   ============================================== */
     
     /* ===== DARKMODE ===== */
 .darkmodecss{
@@ -89,10 +110,9 @@
 }
 
 
-/*  ====================
-        GLOBAL STYLES 
-    ==================== */
-    
+/* ==============================================
+   GLOBAL STYLES
+   ============================================== */ 
 *{
     margin: 0;
     padding: 0;
@@ -105,12 +125,6 @@ html{
     scrollbar-color: hsl(var(--hue), 20%, 65%) hsl(var(--hue), 20%, 85%);
 }
 
-section {
-    scroll-margin-top: 30px; /* adjust to your header height */
-    padding: 6rem 12%;
-    position: relative;
-    margin: 3px;
-}
 body, 
 button, 
 input, 
@@ -119,35 +133,53 @@ textarea{
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
+
 body{
     background-color: var(--body-color);
     transition: 0.5s ease-in-out;
-    
 }
-h1, h2, h3, h4{
+
+h1, 
+h2, 
+h3, 
+h4{
     color: var(--title-color);
     font-family: var(--second-font);
     font-weight: var(--font-bold);
 } 
+
 ul{
     list-style: none;
 }
+
 a{
     text-decoration: none;
 }
+
 img{
     display: block;
     max-width: 100%;
 }
-button, input, textarea{
+
+button, 
+input, 
+textarea{
     border: none;
     outline: none;
     background-color: transparent;
 }
 
+section {
+    scroll-margin-top: 30px; /* adjust to your header height */
+    padding: 6rem 12%;
+    position: relative;
+    margin: 3px;
+}
+
 .main{
     overflow: hidden;
 }
+
 .container{
     max-width: 1320px;
     margin-inline: auto;
@@ -157,13 +189,15 @@ button, input, textarea{
 .container:not(.nav-btn-container, .home-container){
     padding-block: 3.75rem;
 }
+
 .grid{
     display: grid;
-
 }
+
 .section{
     padding-block: 1rem 3rem; 
 }
+
 .section-title{
     font-size: var(--h1-font-size);
     text-align: center;
@@ -177,30 +211,10 @@ button, input, textarea{
     font-size: var(--large-font-size);
 }
 
-.sue-section{
-    position: relative;
-    overflow: hidden;
-}
-.sue-wrapper{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-.sue-sub-container{
-    padding-top: 6rem;
-    padding-bottom: 5rem;
-}
-.section-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 75px;
-}
 
-
-
-/* header section  */
-
+/* ==============================================
+   HEADER & NAVIGATION
+   ============================================== */
 .header{
     position: fixed;
     top: 0;
@@ -216,6 +230,7 @@ button, input, textarea{
     z-index: 1000;
     transform: translateX(-50%);
 }
+
 .logo{
     color: var(--title-color);
     font-size: var(--h3-font-size);
@@ -230,8 +245,6 @@ button, input, textarea{
     transform: scale(1.1);
 }
 
-
-/* new */
 .nav-btn-container{
     display: flex;
     justify-content: space-between;
@@ -245,41 +258,8 @@ button, input, textarea{
     transition: transform 0.5s ease, opacity 0.5s ease, all 0.5s ease;
 }
 
-.hlogo{
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.5s ease-in-out;
-    user-select: none;
-    
-}
 
-
-
-
-
-.nav-btn{
-    display: flex;
-    gap: 3rem;
-    padding: 0;
-    background-color: transparent;
-    transition: opacity 0.5s ease-in-out;
-    color: var(--title-color);
-    font-weight: var(--font-bold);
-    font-family: var(--second-font);
-}
-.nav-btn li a{
-    position: relative;
-    color: var(--text-color);
-    font-weight: 500;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-
-
-
-
-
+/* --- NAV ANIMATION --- */
 .nav-btn-container::before{
     content: "";
     position: absolute;
@@ -300,10 +280,6 @@ button, input, textarea{
   width: 100%; 
 }
 
-
-
-
-
 .nav-btn-container.collapsed .left-logo{
     transform: translateX(255px);
 }
@@ -322,9 +298,25 @@ button, input, textarea{
     pointer-events: auto !important;
 }
 
+/* --- NAV BAR --- */
+.nav-btn{
+    display: flex;
+    gap: 3rem;
+    padding: 0;
+    background-color: transparent;
+    transition: opacity 0.5s ease-in-out;
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    font-family: var(--second-font);
+}
 
-
-
+.nav-btn li a{
+    position: relative;
+    color: var(--text-color);
+    font-weight: 500;
+    background-color: transparent;
+    text-decoration: none;
+}
 
 .nav-btn li a::before{
     position: absolute;
@@ -342,10 +334,16 @@ button, input, textarea{
     width: 100%;
 }
 
+.hlogo{
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    user-select: none;
+    
+}
 
 
-
-
+/* --- LOG-IN BUTTON --- */
 .log-in{
     padding: 0.4rem 0.9rem;
     border-radius: 2rem;
@@ -357,10 +355,17 @@ button, input, textarea{
     background: linear-gradient(var(--gradient-direct), 
     var(--gradient-start), var(--gradient-end));
 }
+.log-in:hover{
+    transform: scale(1.03);
+    background: linear-gradient(var(--gradient-direct), 
+    var(--gradient-end), var(--gradient-start));
+}
+
 .log-in i{
     background: none;
     color: black;
 }
+
 .loginbtn{
     font-weight: var(--font-medium);
     font-size: var(--normal-font-size);
@@ -369,17 +374,16 @@ button, input, textarea{
     cursor: pointer;
     color: var(--const-color);
 }
-.log-in:hover{
-    transform: scale(1.03);
-    background: linear-gradient(var(--gradient-direct), 
-    var(--gradient-end), var(--gradient-start));
-}
+
 #menu-icon{
     display: none;
     font-size: 2rem;
 }
 
-/* Darkmode & Lightmode */
+   
+/* ==============================================
+   DARK/LIGHT MODE TOOGLE
+   ============================================== */
 .dlmode{
     height: 30px;
     width: 30px;
@@ -398,13 +402,16 @@ button, input, textarea{
 .dlmode .ri-sun-fill{ 
     display: none;
 }
+
 .dlmode.active .ri-moon-clear-line{
     display: none;
 }
+
 .dlmode.active .ri-sun-fill{
     display: inline;
     color: white;
 }
+
 .dlmode:hover{
     background-color: black;
 }
@@ -420,38 +427,16 @@ button, input, textarea{
     animation: spin 1s linear infinite;
     color: black;
 }
-
-@keyframes spin{
-    from{
-        transform: rotate(0deg);
-    }
-    to{transform: rotate(360deg);
-    }
-}
-@keyframes swing{
-    0%{ 
-        transform: rotate(0deg); 
-    }
-    25%{ 
-        transform: rotate(20deg); 
-    }
-    50%{ 
-        transform: rotate(-20deg); 
-    }
-    75%{ 
-        transform: rotate(20deg); 
-    }
-    100%{ 
-        transform: rotate(0deg); 
-    }
-}
-
-
+   
+   
+/* ==============================================
+   HOME SECTION
+   ============================================== */
 .home-content{
     position: relative;
 }
 
-/* Word Dice */
+/* --- WORDS IN DICE --- */
 .word-display {
     margin-top: 20px;
     margin-bottom: 1rem;
@@ -468,6 +453,7 @@ button, input, textarea{
 .word-display.fade {
     opacity: 0.2;
 }
+
 .short-tagline{
     margin-top: 2px;
     font-size: var(--larger-font-size);
@@ -481,12 +467,7 @@ button, input, textarea{
     max-width: 520px;
 }
 
-/* dice */
-@keyframes rolling{
-    50%{
-        transform: rotateX(455deg) rotateY(455deg);
-    }
-}
+/* --- DICE --- */
 .dice{
     display: flex;
     flex-direction: column;
@@ -496,6 +477,7 @@ button, input, textarea{
     align-items: center;
     justify-content: center;
 }
+
 .dice-container{
     position: relative;
     width: 100px;
@@ -503,6 +485,7 @@ button, input, textarea{
     transform-style: preserve-3d;
     transition: 1s ease;
 }
+
 .face{
     position: absolute;
     width: 100%;
@@ -515,6 +498,7 @@ button, input, textarea{
               inset 2px 2px 5px rgba(255, 255, 255, 0.5),
               0 4px 10px rgba(0, 0, 0, 0.4);
 }
+
 .face::before{
     position: absolute;
     content: '';
@@ -524,6 +508,7 @@ button, input, textarea{
     background: linear-gradient(145deg, #bdbdbd, #dcdcdc);
     transform: translateZ(-1px);
 }
+
 .face::after{
     position: absolute;
     content: '';
@@ -538,31 +523,40 @@ button, input, textarea{
         inset -2px -2px 5px rgba(0, 0, 0, 0.8);
 
 }
+
+/* --- DICE FACE --- */
 .front{
     transform: translateZ(50px);
 }
+
 .back{
     transform: rotateX(180deg) translateZ(50px);
 }
+
 .top{
     transform: rotateX(90deg) translateZ(50px);
 }
+
 .bottom{
     transform: rotateX(-90deg) translateZ(50px);
 }
+
 .right{
     transform: rotateY(90deg) translateZ(50px);
 }
+
 .left{
     transform: rotateY(-90deg) translateZ(50px);
 }
 
+/* --- DICE DOTS --- */
 .front::after{
     width: 30px;
     height: 30px;
     margin: -15px 0 0 -15px;
 
 }
+
 .back::after{
     margin: -35px 0 0 -30px;
     /* dot sa dice */
@@ -573,11 +567,13 @@ button, input, textarea{
                 40px 50px black; 
     
 }
+
 .top::after{
     margin: -30px 0 0 -30px;
     box-shadow: 40px 40px black;
 
 }
+
 .bottom::after{
     margin: -36px 0 0 -36px;
     box-shadow: 26px 26px black,
@@ -585,41 +581,46 @@ button, input, textarea{
                 52px 0 black,
                 0 52px black;
 }
+
 .right::after{
     margin: -30px 0 0 -30px;
     box-shadow: 40px 0 black,
                 0 40px black,
                 40px 40px black;
 }
+
 .left::after{
     margin: -35px 0 0 -35px;
     box-shadow: 25px 25px black, 50px 50px black;
 
 }
+
 .roll{
     cursor: pointer;
 }
 
 
-
-
-
-/* about section */
+/* ==============================================
+    ABOUT SECTION
+   ============================================== */
 .about{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .about .about-container{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10rem;
 }
+
 .about img{
     width: 30vw;
     border-radius: 50%;
 }
+
 .about-info{
     display: flex;
     flex-direction: column;
@@ -628,18 +629,21 @@ button, input, textarea{
     color: var(--text-color);
     gap: 1.5rem;
 }
+
 .about-txt h3{
     font-size: var(--h2-font-size);
     font-weight: var(--font-semi-bold);
     opacity: 0.8;
     color: var(--text-color);
 }
+
 .about-txt h1{
     font-size: 4rem;
     font-weight: 600;
     color: var(--title-color);
     font-family: var(--second-font);
 }
+
 .about-txt span{
     /* How to use background-clip */
     background: linear-gradient(var(--gradient-direct), 
@@ -648,11 +652,14 @@ button, input, textarea{
     color: transparent;
     font-size: 2rem;
 }
+
+/* --- HOME BUTTONS --- */
 .about-btn{
     display: flex;
     gap: 1rem;
     justify-content: center;
 }
+
 .btn{
     border: 2px solid var(--border-color);
     box-shadow: 4px 4px var(--shadow-color);
@@ -667,9 +674,11 @@ button, input, textarea{
     transition: color 0.3s var(--transition);
     z-index: 1;
 }
+
 .btn:hover{
     color: var(--white-color);
 }
+
 .btn::before{
     content: '';
     position: absolute;
@@ -682,11 +691,14 @@ button, input, textarea{
     z-index: -10;
     transition: all 0.7s var(--transition);
 }
+
 .btn:hover::before{
     transform: scale(1);
     filter: blur(0);
     opacity: 1;
 }
+
+/* --- SOCIALS --- */
 .about-socials{
     display: flex;
     gap: 2rem;
@@ -700,11 +712,3 @@ button, input, textarea{
 .about-socials i:hover{
     transform: scale(1.1);
 }
-
-
-
- 
-
-
-
-
