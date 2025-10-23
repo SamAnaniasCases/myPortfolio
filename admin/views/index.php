@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/../../config/init.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +27,7 @@
 
             <!-- ===== LOGIN ===== -->
             <div class="form-box login">
-                <form action="login.php" method="POST">
+                <form action="<?php echo BASE_URL; ?>admin/controller/login.php" method="POST">
                     <h1>Login</h1>
                     <div class="input-box">
                         <input type="text" placeholder="Username" name="name" required>
@@ -56,7 +60,7 @@
             <!-- ===== REGISTRATION FORM ===== -->
 
             <div class="form-box register">
-                <form action="register.php" method="POST">
+                <form action="<?php echo BASE_URL; ?>admin/controller/register.php" method="POST">
                     <h1>Registration</h1>
                     <div class="input-box">
                         <input type="text" placeholder="Username" name="name" required>
@@ -87,7 +91,7 @@
 
             <div class="toggle-box">
                 <div class="toggle-panel toggle-left">
-                    <a href="../../website/index.html">
+                    <a href="<?php echo BASE_URL; ?>website/index.php">
                         <i class="ri-home-5-line home-left home-button"></i>
                     </a>
                     <h1>Hello, Welcome to <br> your Cogito</h1>
@@ -96,7 +100,7 @@
                 </div>
 
                 <div class="toggle-panel toggle-right">
-                    <a href="../../website/index.html">
+                    <a href="<?php echo BASE_URL; ?>website/index.php">
                         <i class="ri-home-5-line home-right home-button"></i>
                     </a>
                     <h1>Welcome Back Cogito!</h1>
@@ -107,7 +111,7 @@
         </div>
     </section>
 
-    <script src="../../assets/js/forLogin.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/forLogin.js"></script>
     
 </body>
 </html>

@@ -1,2 +1,3 @@
 <?php
-require 'website/index.html';
+require 'website/index.php';
+?>

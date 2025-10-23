@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/../config/init.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +10,13 @@
     initial-scale=1.0">
 
     <!--Main css-->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
 
     <!--Sub css-->
-    <link rel="stylesheet" href="../assets/css/experience.css">
-    <link rel="stylesheet" href="../assets/css/contact.css">
-    <link rel="stylesheet" href="../assets/css/portfolio.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/experience.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/contact.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/portfolio.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/responsive.css">
 
     <!-- https://remixicon.com/ for icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -51,7 +55,7 @@
         </button>
 
         <div class="log-in">
-        <a href="../admin/views/index.html">
+        <a href="<?php echo BASE_URL; ?>admin/views/index.php">
         <i class="ri-user-line"></i>
         <button class="loginbtn">Login</button>
         </a>
@@ -84,7 +88,7 @@
 
     <section class="about" id="about">
         <div class="about-container">
-            <img src="../assets/images/confused.jpg" alt="confusedmf">
+            <img src="<?php echo BASE_URL; ?>assets/images/confused.jpg" alt="confusedmf">
 
             <div class="about-info">
 
@@ -200,7 +204,7 @@
                         <div class="card-with-modal web-design">
                             <div class="portfolio-card">
                                 <div class="card-img">
-                                    <img src="../assets/images/webdesign-example.jpg" alt="">
+                                    <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                 </div>
                                 <div class="card-info">
                                     <span>Web Design</span>
@@ -216,7 +220,7 @@
                                     </a>
                                     <div class="modal-content">
                                         <div class="modal-img">
-                                            <img src="../assets/images/webdesign-example.jpg" alt="">
+                                            <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                         </div>
                                         <h4 class="modal-title">
                                             TEST TITLE
@@ -232,7 +236,7 @@
                         <div class="card-with-modal web-design">
                             <div class="portfolio-card">
                                 <div class="card-img">
-                                    <img src="../assets/images/webdesign-example.jpg" alt="">
+                                    <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                 </div>
                                 <div class="card-info">
                                     <span>Web Design</span>
@@ -248,7 +252,7 @@
                                     </a>
                                     <div class="modal-content">
                                         <div class="modal-img">
-                                            <img src="../assets/images/webdesign-example.jpg" alt="">
+                                            <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                         </div>
                                         <h4 class="modal-title">
                                             TEST TITLE
@@ -263,7 +267,7 @@
                         <div class="card-with-modal lorem">
                             <div class="portfolio-card">
                                 <div class="card-img">
-                                    <img src="../assets/images/webdesign-example.jpg" alt="">
+                                    <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                 </div>
                                 <div class="card-info">
                                     <span>Web Design</span>
@@ -279,7 +283,7 @@
                                     </a>
                                     <div class="modal-content">
                                         <div class="modal-img">
-                                            <img src="../assets/images/webdesign-example.jpg" alt="">
+                                            <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                         </div>
                                         <h4 class="modal-title">
                                             TEST TITLE
@@ -294,7 +298,7 @@
                         <div class="card-with-modal lorem">
                             <div class="portfolio-card">
                                 <div class="card-img">
-                                    <img src="../assets/images/webdesign-example.jpg" alt="">
+                                    <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                 </div>
                                 <div class="card-info">
                                     <span>Web Design</span>
@@ -310,7 +314,7 @@
                                     </a>
                                     <div class="modal-content">
                                         <div class="modal-img">
-                                         <img src="../assets/images/webdesign-example.jpg" alt="">
+                                         <img src="<?php echo BASE_URL; ?>assets/images/webdesign-example.jpg" alt="">
                                         </div>
                                         <h4 class="modal-title">
                                             TEST TITLE
@@ -437,11 +441,11 @@
         
 </script>
 
-<script src="../assets/js/darkmodeJS.js"></script>
-<script src="../assets/js/portfolioJs.js"></script>
-<script src="../assets/js/contactsubmit.js"></script>
-<script src="../assets/js/myPortDice.js"></script>
-<script src="../assets/js/swiper.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/darkmodeJS.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/portfolioJs.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/contactsubmit.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/myPortDice.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/swiper.js"></script>
 
 </body>
 </html>

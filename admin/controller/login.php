@@ -1,6 +1,8 @@
 <?php
 session_start();
-include 'config.php';
+include __DIR__ . '/../../config/config.php';
+include __DIR__ . '/../../config/init.php';
+
 
 if (isset($_POST['login'])) {
     $name = $_POST['name'];
@@ -13,7 +15,7 @@ if (isset($_POST['login'])) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['name'];
-            header("Location: " . BASE_URL . "website/index.html");
+            header("Location: " . BASE_URL . "website/index.php");
             exit();
         } else {
             echo "<script>alert('Incorrect password!'); window.location.href='index.php';</script>";
