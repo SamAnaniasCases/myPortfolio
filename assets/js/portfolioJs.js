@@ -72,3 +72,47 @@ portfolioCardsWithModals.forEach((portfolioCardWithModal) => {
     });
 
 });
+
+
+// ADD PROJECTS OPEN AND CLOSE
+const addProjectBtn = document.getElementById("addProjectBtn");
+const addProjectBackdrop = document.getElementById("addProjectModal");
+const addProjectModal = addProjectBackdrop.querySelector(".portfolio-modal");
+const closeAddModalBtn = document.getElementById("closeAddModal");
+
+addProjectBtn.addEventListener("click", () => {
+    addProjectBackdrop.style.display = "flex";
+
+    setTimeout(() => {
+        addProjectBackdrop.classList.add("active");
+    }, 300);
+
+    setTimeout(() => {
+        addProjectModal.classList.add("active");
+    }, 300);
+});
+
+closeAddModalBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        addProjectBackdrop.style.display = "none";
+    }, 500);
+
+    setTimeout(() => {
+        addProjectBackdrop.classList.remove("active");
+        addProjectModal.classList.remove("active");
+    }, 100);
+});
+
+// click outside modal to close
+addProjectBackdrop.addEventListener("click", (e) => {
+    if (e.target === addProjectBackdrop) {
+        setTimeout(() => {
+            addProjectBackdrop.style.display = "none";
+        }, 500);
+
+        setTimeout(() => {
+            addProjectBackdrop.classList.remove("active");
+            addProjectModal.classList.remove("active");
+        }, 100);
+    }
+});

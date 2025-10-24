@@ -57,6 +57,21 @@
     background: linear-gradient(var(--gradient-direct), var(--gradient-start), var(--gradient-end));
 }
 
+.portfolio-tabs button{
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    padding: 12px 0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.portfolio-tabs button:hover{
+    color: var(--gradient-start);
+
+}
+
+
 .portfolio-container{
     display: grid;
     place-items: center;
@@ -81,12 +96,18 @@
     border: 2px solid var(--border-color);
     box-shadow: 6px 4px 12px var(--shadow-color);
 }
-.portfolio-card .card-img{
-    width: 100%;
+.portfolio-card .card-img {
+  width: 100%;
+  height: 200px; /* set fixed height */
+  overflow: hidden;
 }
-.portfolio-card .card-img img{
-    width: 100%;
+
+.portfolio-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop evenly, keeps proportions */
 }
+
 .portfolio-card .card-info{
     position: relative;
     padding: 10px 15px 20px 20px;
@@ -176,13 +197,20 @@
     row-gap: 25px;
 }
 
-.portfolio-modal .modla-img{
-    width: 100%;
+.portfolio-modal .modal-img {
+  width: 100%;
+  height: 400px; /* set a consistent height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
-.portfolio-modal .modla-img img{
-    width: 100%;
-    border-radius: 10px;
+.portfolio-modal .modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures all images fill the same box */
 }
 
 .portfolio-modal .modal-content .modal-title{
@@ -195,6 +223,43 @@
     color: var(--text-color);
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.submit-btn {
+  background-color: var(--container-color);
+  color: var(--title-color);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: var(--font-semi-bold);
+}
+
+.submit-btn:hover {
+  background-color: var(--hover-color);
 }
 
 

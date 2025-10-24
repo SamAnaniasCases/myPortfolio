@@ -91,7 +91,7 @@ include __DIR__ . '/../../config/init.php';
 
             <div class="toggle-box">
                 <div class="toggle-panel toggle-left">
-                    <a href="<?php echo BASE_URL; ?>website/index.php">
+                    <a href="<?php echo BASE_URL; ?>">
                         <i class="ri-home-5-line home-left home-button"></i>
                     </a>
                     <h1>Hello, Welcome to <br> your Cogito</h1>
@@ -100,7 +100,7 @@ include __DIR__ . '/../../config/init.php';
                 </div>
 
                 <div class="toggle-panel toggle-right">
-                    <a href="<?php echo BASE_URL; ?>website/index.php">
+                    <a href="<?php echo BASE_URL; ?>">
                         <i class="ri-home-5-line home-right home-button"></i>
                     </a>
                     <h1>Welcome Back Cogito!</h1>
