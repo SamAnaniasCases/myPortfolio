@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 // Open close
 const portfolioCardsWithModals = document.querySelectorAll(".portfolio-container .card-with-modal");
 
@@ -116,3 +115,65 @@ addProjectBackdrop.addEventListener("click", (e) => {
         }, 100);
     }
 });
+
+
+// EDIT PROJECTS
+document.querySelectorAll(".edit-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const id = btn.dataset.id;
+    const title = btn.dataset.title;
+    const category = btn.dataset.category;
+    const description = btn.dataset.description;
+    const image = btn.dataset.image;
+
+    const editModal = document.getElementById("editProjectModal");
+    const editForm = document.getElementById("editProjectForm");
+
+    editForm.querySelector("#editId").value = id;
+    editForm.querySelector("#editCategory").value = category;
+    editForm.querySelector("#editTitle").value = title;
+    editForm.querySelector("#editDescription").value = description;
+    editForm.querySelector("#editExistingImage").value = image;
+
+    // Show the modal
+    editModal.style.display = "flex";
+    setTimeout(() => editModal.classList.add("active"), 10);
+  });
+});
+
+document.querySelectorAll(".edit-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const id = btn.dataset.id;
+    const title = btn.dataset.title;
+    const category = btn.dataset.category;
+    const description = btn.dataset.description;
+    const image = btn.dataset.image;
+
+    const editModal = document.getElementById("editProjectModal");
+    const editForm = document.getElementById("editProjectForm");
+
+    // Fill the form fields
+    editForm.querySelector("#editId").value = id;
+    editForm.querySelector("#editCategory").value = category;
+    editForm.querySelector("#editTitle").value = title;
+    editForm.querySelector("#editDescription").value = description;
+    editForm.querySelector("#editExistingImage").value = image;
+
+    // Show the modal
+    editModal.style.display = "flex";
+    setTimeout(() => editModal.classList.add("active"), 10);
+  });
+});
+
+// Close modal on close button
+document.getElementById("closeEditModal").addEventListener("click", () => {
+  const editModal = document.getElementById("editProjectModal");
+  editModal.classList.remove("active");
+  setTimeout(() => (editModal.style.display = "none"), 300);
+});
+
+

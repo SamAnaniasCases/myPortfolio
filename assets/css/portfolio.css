@@ -199,7 +199,7 @@
 
 .portfolio-modal .modal-img {
   width: 100%;
-  height: 400px; /* set a consistent height */
+  height: 400px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -210,7 +210,7 @@
 .portfolio-modal .modal-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ensures all images fill the same box */
+  object-fit: cover;
 }
 
 .portfolio-modal .modal-content .modal-title{
@@ -261,6 +261,51 @@
 .submit-btn:hover {
   background-color: var(--hover-color);
 }
+
+
+/* --- EDIT / DELETE BUTTON */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-actions button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: var(--font-semi-bold);
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background: var(--first-color);
+    color: white;
+}
+
+.delete-btn {
+    background: #e63946;
+    color: white;
+}
+
+.modal-actions button:hover {
+    opacity: 0.85;
+}
+
+#editProjectModal.active {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+#editProjectModal.active .portfolio-modal {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
 
 
 

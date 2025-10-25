@@ -194,93 +194,167 @@ $projects = $project->all();
     style="padding-top: 1rem;">
         <div class="container sue-sub-contaier">
             <div class="sue-wrapper">
-                    <h2 class="section-title" data-title="My Works">Projects</h2>
-
-                <!-- PROJECT NAV -->
-                <div class="portfolio-tabs">
-                    <a class="tab-btn active" data-filter="all">All</a>
-                    <a class="tab-btn" data-filter="web-design">Web Design</a>
-                    <a class="tab-btn" data-filter="lorem">Lorem</a>
-                    <a class="tab-btn" data-filter="leroy">Lerroy</a>
-                    <a class="tab-btn" data-filter="botbot">Botbot</a>
-
-                    <button class="add-btn" id="addProjectBtn">
-                    <i class="ri-add-line"></i> Add Project
-                    </button>  
-                </div>
-
-                <!-- ADD PROJECT -->
-                <div class="portfolio-modal-backdrop" id="addProjectModal" style="display: none;">
-                    <div class="portfolio-modal">
-                        <a class="modal-close-btn" id="closeAddModal">
-                            <i class="ri-close-line"></i>
-                        </a>
-                        <div class="modal-content">
-                            <h4 class="modal-title">Add New Project</h4>
-
-                            <form id="addProjectForm" method="POST" action="<?php echo BASE_URL; ?>admin/controller/projectController.php?action=create" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <input type="text" id="category" name="category" placeholder="e.g. Web Design" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" id="title" name="title" placeholder="e.g. Portfolio Website" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea id="description" name="description" rows="4" placeholder="Write a description..." required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="image">Project Image</label>
-                                    <input type="file" id="image" name="image" accept="image/*">
-                                </div>
-
-                                <button type="submit" class="submit-btn" name="saveProject">Save Project</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="section-title" data-title="My Works">Projects</h2>
 
 
-                <!-- CONTENT PROJECTS -->
-                <div class="section-content">
-                    <div class="portfolio-container">
-                        <?php foreach ($projects as $row): ?>
-                            <div class="card-with-modal <?php echo strtolower($row['category']); ?>">
-                                <div class="portfolio-card">
-                                    <div class="card-img">
-                                        <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
-                                    </div>
-                                    <div class="card-info">
-                                        <span><?php echo htmlspecialchars($row['category']); ?></span>
-                                        <h4><?php echo htmlspecialchars($row['title']); ?></h4>
-                                        <i class="ri-arrow-right-up-line card-btn"></i>
-                                    </div>
-                                </div>
+            <!-- PROJECT NAV -->
+            <div class="portfolio-tabs">
+            <a class="tab-btn active" data-filter="all">All</a>
 
-                                <div class="portfolio-modal-backdrop">
-                                    <div class="portfolio-modal">
-                                        <a class="modal-close-btn"><i class="ri-close-line"></i></a>
-                                        <div class="modal-content">
-                                            <div class="modal-img">
-                                                <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
-                                            </div>
-                                            <h4 class="modal-title"><?php echo htmlspecialchars($row['title']); ?></h4>
-                                            <p class="description"><?php echo htmlspecialchars($row['description']); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
+            <?php
+                $categories = [];
+                foreach ($projects as $row) {
+                    $cat = strtolower(trim($row['category']));
+                    if (!in_array($cat, $categories)) {
+                        $categories[] = $cat;
+                    }
+                }
+
+                foreach ($categories as $cat):
+                    $filterName = str_replace(' ', '-', $cat); 
+                    $label = ucwords($cat); 
+            ?>
+                <a class="tab-btn" data-filter="<?php echo $filterName; ?>">
+                    <?php echo $label; ?>
+                </a>
+
+            <?php endforeach; ?>
+
+            <button class="add-btn" id="addProjectBtn">
+                            <i class="ri-add-line"></i> Add Project
+            </button> 
+            
+            </div>
+
+
+            <!-- ADD PROJECT -->
+            <div class="portfolio-modal-backdrop" id="addProjectModal" style="display: none;">
+                <div class="portfolio-modal">
+                    <a class="modal-close-btn" id="closeAddModal">
+                        <i class="ri-close-line"></i>
+                    </a>
+                    <div class="modal-content">
+                        <h4 class="modal-title">Add New Project</h4>
+
+                        <form id="addProjectForm" method="POST" action="<?php echo BASE_URL; ?>admin/controller/projectController.php?action=create" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <input type="text" id="category" name="category" placeholder="e.g. Web Design" required>
                             </div>
-                        <?php endforeach; ?>
+
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="e.g. Portfolio Website" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="4" placeholder="Write a description..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Project Image</label>
+                                <input type="file" id="image" name="image" accept="image/*">
+                            </div>
+
+                            <button type="submit" class="submit-btn" name="saveProject">Save Project</button>
+                        </form>
                     </div>
                 </div>
             </div>
+
+
+            <!-- CONTENT PROJECTS -->
+            <div class="section-content">
+                <div class="portfolio-container">
+                    <?php foreach ($projects as $row): ?>
+                        <div class="card-with-modal <?php echo strtolower(str_replace(' ', '-', $row['category'])); ?>">
+                            <div class="portfolio-card">
+                                <div class="card-img">
+                                    <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
+                                </div>
+                                <div class="card-info">
+                                    <span><?php echo htmlspecialchars($row['category']); ?></span>
+                                    <h4><?php echo htmlspecialchars($row['title']); ?></h4>
+                                    <i class="ri-arrow-right-up-line card-btn"></i>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-modal-backdrop">
+                                <div class="portfolio-modal">
+                                    <a class="modal-close-btn"><i class="ri-close-line"></i></a>
+                                    <div class="modal-content">
+                                        <div class="modal-img">
+                                            <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
+                                        </div>
+                                        <h4 class="modal-title"><?php echo htmlspecialchars($row['title']); ?></h4>
+                                        <p class="description"><?php echo htmlspecialchars($row['description']); ?></p>
+
+                                        <!-- EDIT / UPDATE BUTTON -->
+                                         <div class="modal-actions">
+  <button class="edit-btn"
+      data-id="<?php echo $row['id']; ?>"
+      data-category="<?php echo htmlspecialchars($row['category']); ?>"
+      data-title="<?php echo htmlspecialchars($row['title']); ?>"
+      data-description="<?php echo htmlspecialchars($row['description']); ?>"
+      data-image="<?php echo htmlspecialchars($row['image']); ?>">
+    Edit
+  </button>
+</div>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+
+                    <!-- EDIT PROJECT -->
+<div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
+  <div class="portfolio-modal">
+    <a class="modal-close-btn" id="closeEditModal"><i class="ri-close-line"></i></a>
+    <div class="modal-content">
+      <h4 class="modal-title">Edit Project</h4>
+
+      <form id="editProjectForm" method="POST"
+        action="<?php echo BASE_URL; ?>admin/controller/projectController.php?action=update"
+        enctype="multipart/form-data">
+
+        <input type="hidden" id="editId" name="id">
+        <input type="hidden" id="editExistingImage" name="existing_image">
+
+        <div class="form-group">
+          <label for="editCategory">Category</label>
+          <input type="text" id="editCategory" name="category" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editTitle">Title</label>
+          <input type="text" id="editTitle" name="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editDescription">Description</label>
+          <textarea id="editDescription" name="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editImage">Replace Image (optional)</label>
+          <input type="file" id="editImage" name="image" accept="image/*">
+        </div>
+
+        <button type="submit" class="submit-btn">Update Project</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</section>
 
 
 
