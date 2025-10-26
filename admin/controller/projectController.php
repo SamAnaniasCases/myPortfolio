@@ -91,6 +91,7 @@ function update($project)
     exit;
 }
 
+/*
 function delete($project)
 {
     header('Content-Type: application/json');
@@ -105,6 +106,37 @@ function delete($project)
     echo json_encode(['success' => true]);
     exit;
 }
+*/
+
+function delete($project)
+{
+    header('Content-Type: application/json');
+
+    // Check if ID was sent
+    if (empty($_POST['id'])) {
+        echo json_encode(['success' => false, 'error' => 'No project ID received']);
+        exit;
+    }
+
+    $id = $_POST['id'];
+
+    try {
+        // Call delete function from Project model
+        $result = $project->delete($id);
+
+        if ($result) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false, 'error' => 'Project::delete() returned false']);
+        }
+    } catch (Exception $e) {
+        echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+    }
+
+    exit;
+}
+
+
 
 function show($project)
 {

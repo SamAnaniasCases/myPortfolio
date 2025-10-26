@@ -290,17 +290,24 @@ $projects = $project->all();
                                         <h4 class="modal-title"><?php echo htmlspecialchars($row['title']); ?></h4>
                                         <p class="description"><?php echo htmlspecialchars($row['description']); ?></p>
 
-                                        <!-- EDIT / UPDATE BUTTON -->
-                                         <div class="modal-actions">
+
+<!-- EDIT / DELETE BUTTONS -->
+<div class="modal-actions">
   <button class="edit-btn"
       data-id="<?php echo $row['id']; ?>"
       data-category="<?php echo htmlspecialchars($row['category']); ?>"
       data-title="<?php echo htmlspecialchars($row['title']); ?>"
       data-description="<?php echo htmlspecialchars($row['description']); ?>"
       data-image="<?php echo htmlspecialchars($row['image']); ?>">
-    Edit
+    <i class="ri-edit-line"></i> Edit
+  </button>
+
+  <button class="delete-btn"
+      data-id="<?php echo $row['id']; ?>">
+    <i class="ri-delete-bin-line"></i> Delete
   </button>
 </div>
+
 
                                         
                                     </div>
@@ -461,6 +468,10 @@ $projects = $project->all();
  <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
         
+</script>
+
+<script>
+  const BASE_URL = "<?php echo BASE_URL; ?>";
 </script>
 
 <script src="<?php echo BASE_URL; ?>assets/js/darkmodeJS.js"></script>

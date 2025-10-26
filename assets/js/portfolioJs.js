@@ -177,3 +177,97 @@ document.getElementById("closeEditModal").addEventListener("click", () => {
 });
 
 
+// Handle Edit form submission via AJAX
+document.getElementById("editProjectForm").addEventListener("submit", async (e) => {
+  e.preventDefault(); // stop the normal form submission
+
+  const form = e.target;
+  const formData = new FormData(form); // capture all fields
+
+  try {
+    // Send form data to the backend
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("✅ Project updated successfully!");
+
+      // Close modal smoothly
+      const modal = document.getElementById("editProjectModal");
+      modal.classList.remove("active");
+      setTimeout(() => (modal.style.display = "none"), 300);
+
+      // OPTIONAL: update the card content instantly (no reload)
+      const id = formData.get("id");
+      const title = formData.get("title");
+      const category = formData.get("category");
+      const description = formData.get("description");
+
+      const card = document.querySelector(`.edit-btn[data-id="${id}"]`)?.closest(".card-with-modal");
+      if (card) {
+        card.querySelector("h4").textContent = title;
+        card.querySelector("span").textContent = category;
+        card.querySelector(".description").textContent = description;
+      }
+
+    } else {
+      alert("❌ Update failed — please try again.");
+      console.error(result);
+    }
+  } catch (error) {
+    console.error("Error during update:", error);
+    alert("⚠️ Something went wrong. Check console for details.");
+  }
+});
+
+
+// Handle Delete via AJAX
+document.querySelectorAll(".delete-btn").forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    e.stopPropagation();
+    const id = btn.dataset.id;
+
+    // Confirm before deleting
+    const confirmed = confirm("⚠️ Are you sure you want to delete this project?");
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`${BASE_URL}admin/controller/projectController.php?action=delete`, {
+
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ id }),
+        }
+      );
+
+      const result = await response.json();
+      console.log("Server response:", result);
+
+
+      if (result.success) {
+        alert("✅ Project deleted successfully!");
+
+        // Remove the card visually
+        const card = btn.closest(".card-with-modal");
+        if (card) {
+          card.style.transition = "opacity 0.3s ease";
+          card.style.opacity = "0";
+          setTimeout(() => card.remove(), 300);
+        }
+
+      } else {
+        alert("❌ Deletion failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error deleting project:", error);
+      alert("⚠️ Something went wrong while deleting.");
+    }
+  });
+});
+
+
+
