@@ -18,10 +18,16 @@ if (isset($_POST['login'])) {
             header("Location: " . BASE_URL . "website/index.php");
             exit();
         } else {
-            echo "<script>alert('Incorrect password!'); window.location.href='index.php';</script>";
+            echo "<script>
+                alert('Incorrect password!');
+                window.location.href='" . BASE_URL . "admin/views/index.php';
+            </script>";
         }
     } else {
-        echo "<script>alert('User not found!'); window.location.href='index.php';</script>";
+        echo "<script>
+            alert('User not found!');
+            window.location.href='" . BASE_URL . "admin/views/index.php';
+        </script>";
     }
 }
 ?>

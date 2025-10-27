@@ -286,7 +286,7 @@
 }
 
 .delete-btn {
-    background: #e63946;
+    background: var(--gradient-start);
     color: white;
 }
 

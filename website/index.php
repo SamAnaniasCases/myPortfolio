@@ -87,7 +87,6 @@ $projects = $project->all();
                 </div>
             </div>
         </div>
-    
     </section>
 
     <section class="about" id="about">
@@ -104,16 +103,15 @@ $projects = $project->all();
 
                 <div class="about-btn">
 
-                    <div class="btn">Downloads</div>
-                    <div class="btn">Contacts</div>
+                    <div class="btn"><a href="">Read More</a></div>
+                    <div class="btn"><a href="#contacts">Contacts</a></div>
                 </div>
 
                 <div class="about-socials">
-                    <i class="ri-github-fill"></i>
-                    <i class="ri-facebook-circle-fill"></i>
+                    <a href="https://github.com/SamAnaniasCases" target="_blank"><i class="ri-github-fill"></i></a>
+                    <a href="https://www.facebook.com/samananias.cases" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
 
                 </div>
-
             </div>
         </div>
     </section>
@@ -184,9 +182,7 @@ $projects = $project->all();
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-            
         </div>
-        
     </section>
 
     <!-- ===== Portfolio ===== -->
@@ -271,7 +267,7 @@ $projects = $project->all();
                         <div class="card-with-modal <?php echo strtolower(str_replace(' ', '-', $row['category'])); ?>">
                             <div class="portfolio-card">
                                 <div class="card-img">
-                                    <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
+                                    <img src="<?php echo BASE_URL . ($row['image'] ?: 'uploads/default.jpg'); ?>" alt="">
                                 </div>
                                 <div class="card-info">
                                     <span><?php echo htmlspecialchars($row['category']); ?></span>
@@ -285,31 +281,28 @@ $projects = $project->all();
                                     <a class="modal-close-btn"><i class="ri-close-line"></i></a>
                                     <div class="modal-content">
                                         <div class="modal-img">
-                                            <img src="<?php echo $row['image'] ?: 'assets/images/default.jpg'; ?>" alt="">
+                                            <img src="<?php echo BASE_URL . ($row['image'] ?: 'uploads/default.jpg'); ?>" alt="">
                                         </div>
                                         <h4 class="modal-title"><?php echo htmlspecialchars($row['title']); ?></h4>
                                         <p class="description"><?php echo htmlspecialchars($row['description']); ?></p>
 
 
-<!-- EDIT / DELETE BUTTONS -->
-<div class="modal-actions">
-  <button class="edit-btn"
-      data-id="<?php echo $row['id']; ?>"
-      data-category="<?php echo htmlspecialchars($row['category']); ?>"
-      data-title="<?php echo htmlspecialchars($row['title']); ?>"
-      data-description="<?php echo htmlspecialchars($row['description']); ?>"
-      data-image="<?php echo htmlspecialchars($row['image']); ?>">
-    <i class="ri-edit-line"></i> Edit
-  </button>
+                                        <!-- EDIT / DELETE BUTTONS -->
+                                        <div class="modal-actions">
+                                        <button class="edit-btn"
+                                            data-id="<?php echo $row['id']; ?>"
+                                            data-category="<?php echo htmlspecialchars($row['category']); ?>"
+                                            data-title="<?php echo htmlspecialchars($row['title']); ?>"
+                                            data-description="<?php echo htmlspecialchars($row['description']); ?>"
+                                            data-image="<?php echo htmlspecialchars($row['image']); ?>">
+                                            <i class="ri-edit-line"></i> Edit
+                                        </button>
 
-  <button class="delete-btn"
-      data-id="<?php echo $row['id']; ?>">
-    <i class="ri-delete-bin-line"></i> Delete
-  </button>
-</div>
-
-
-                                        
+                                        <button class="delete-btn"
+                                            data-id="<?php echo $row['id']; ?>">
+                                            <i class="ri-delete-bin-line"></i> Delete
+                                        </button>
+                                        </div>                                 
                                     </div>
                                 </div>
                             </div>
@@ -321,53 +314,48 @@ $projects = $project->all();
     </div>
 
                     <!-- EDIT PROJECT -->
-<div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
-  <div class="portfolio-modal">
-    <a class="modal-close-btn" id="closeEditModal"><i class="ri-close-line"></i></a>
-    <div class="modal-content">
-      <h4 class="modal-title">Edit Project</h4>
+    <div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
+        <div class="portfolio-modal">
+            <a class="modal-close-btn" id="closeEditModal"><i class="ri-close-line"></i></a>
+            <div class="modal-content">
+            <h4 class="modal-title">Edit Project</h4>
 
-      <form id="editProjectForm" method="POST"
-        action="<?php echo BASE_URL; ?>admin/controller/projectController.php?action=update"
-        enctype="multipart/form-data">
+            <form id="editProjectForm" method="POST"
+                action="<?php echo BASE_URL; ?>admin/controller/projectController.php?action=update"
+                enctype="multipart/form-data">
 
-        <input type="hidden" id="editId" name="id">
-        <input type="hidden" id="editExistingImage" name="existing_image">
+                <input type="hidden" id="editId" name="id">
+                <input type="hidden" id="editExistingImage" name="existing_image">
 
-        <div class="form-group">
-          <label for="editCategory">Category</label>
-          <input type="text" id="editCategory" name="category" required>
+                <div class="form-group">
+                <label for="editCategory">Category</label>
+                <input type="text" id="editCategory" name="category" required>
+                </div>
+
+                <div class="form-group">
+                <label for="editTitle">Title</label>
+                <input type="text" id="editTitle" name="title" required>
+                </div>
+
+                <div class="form-group">
+                <label for="editDescription">Description</label>
+                <textarea id="editDescription" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                <label for="editImage">Replace Image (optional)</label>
+                <input type="file" id="editImage" name="image" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-btn">Update Project</button>
+            </form>
+            </div>
         </div>
-
-        <div class="form-group">
-          <label for="editTitle">Title</label>
-          <input type="text" id="editTitle" name="title" required>
-        </div>
-
-        <div class="form-group">
-          <label for="editDescription">Description</label>
-          <textarea id="editDescription" name="description" rows="4" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="editImage">Replace Image (optional)</label>
-          <input type="file" id="editImage" name="image" accept="image/*">
-        </div>
-
-        <button type="submit" class="submit-btn">Update Project</button>
-      </form>
     </div>
-  </div>
-</div>
-
-
 </section>
 
 
-
-
     <!-- ===== Contact Section ===== -->
-
     <section class="contact section" id="contacts">
         <h2 class="section-title" data-title="Hop on">Contact Me</h2>
 
@@ -444,7 +432,7 @@ $projects = $project->all();
 
                     <div class="contact-submit">
                         <span>* Accept the terms and conditions.</span>
-                        <button class="btn" type="submit">Send Message</button>
+                        <button class="btn-contact" type="submit">Send Message</button>
                     </div>
 
                     <p class="message" id="message"></p>
@@ -453,14 +441,6 @@ $projects = $project->all();
     </section>
     
     </main>
-
-    <footer class="footr">
-        <div class="footer-container container">
-
-        </div>
-    </footer>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 

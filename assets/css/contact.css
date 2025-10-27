@@ -97,3 +97,42 @@
 .color-first{
     color: var(--first-color);
 }
+
+.btn-contact{
+    border: 2px solid var(--border-color);
+    box-shadow: 4px 4px var(--shadow-color);
+    border-radius: 3rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    display: inline-block;
+    color: var(--title-color);
+    font-size: var(--normal-font-size);
+    position: relative;
+    font-weight: var(--font-bold);
+    transition: color 0.3s var(--transition);
+    z-index: 1;
+    text-decoration: none;
+}
+
+.btn-contact:hover{
+    color: var(--white-color);
+}
+
+.btn-contact::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: var(--first-color);
+    border-radius: inherit;
+    transform: scale(0.3);
+    filter: blur(10px);
+    opacity: 0;
+    z-index: -10;
+    transition: all 0.7s var(--transition);
+}
+
+.btn-contact:hover::before{
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
+}

@@ -1,3 +1,4 @@
+// ===== Category filter =====
 document.addEventListener("DOMContentLoaded", () => {
     const portfolioTabs = document.querySelector(".portfolio-tabs");
     const portfolioTabBtns = portfolioTabs.querySelectorAll(".tab-btn");
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Open close
+// ===== Open close in modal =====
 const portfolioCardsWithModals = document.querySelectorAll(".portfolio-container .card-with-modal");
 
 portfolioCardsWithModals.forEach((portfolioCardWithModal) => {
@@ -73,7 +74,7 @@ portfolioCardsWithModals.forEach((portfolioCardWithModal) => {
 });
 
 
-// ADD PROJECTS OPEN AND CLOSE
+// ===== ADD PROJECTS OPEN AND CLOSE =====
 const addProjectBtn = document.getElementById("addProjectBtn");
 const addProjectBackdrop = document.getElementById("addProjectModal");
 const addProjectModal = addProjectBackdrop.querySelector(".portfolio-modal");
@@ -117,7 +118,7 @@ addProjectBackdrop.addEventListener("click", (e) => {
 });
 
 
-// EDIT PROJECTS
+// ===== EDIT PROJECTS =====
 document.querySelectorAll(".edit-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -137,7 +138,6 @@ document.querySelectorAll(".edit-btn").forEach((btn) => {
     editForm.querySelector("#editDescription").value = description;
     editForm.querySelector("#editExistingImage").value = image;
 
-    // Show the modal
     editModal.style.display = "flex";
     setTimeout(() => editModal.classList.add("active"), 10);
   });
@@ -156,14 +156,12 @@ document.querySelectorAll(".edit-btn").forEach((btn) => {
     const editModal = document.getElementById("editProjectModal");
     const editForm = document.getElementById("editProjectForm");
 
-    // Fill the form fields
     editForm.querySelector("#editId").value = id;
     editForm.querySelector("#editCategory").value = category;
     editForm.querySelector("#editTitle").value = title;
     editForm.querySelector("#editDescription").value = description;
     editForm.querySelector("#editExistingImage").value = image;
 
-    // Show the modal
     editModal.style.display = "flex";
     setTimeout(() => editModal.classList.add("active"), 10);
   });
@@ -177,15 +175,14 @@ document.getElementById("closeEditModal").addEventListener("click", () => {
 });
 
 
-// Handle Edit form submission via AJAX
 document.getElementById("editProjectForm").addEventListener("submit", async (e) => {
-  e.preventDefault(); // stop the normal form submission
+  e.preventDefault(); 
 
   const form = e.target;
   const formData = new FormData(form); // capture all fields
 
   try {
-    // Send form data to the backend
+
     const response = await fetch(form.action, {
       method: "POST",
       body: formData,
@@ -196,12 +193,10 @@ document.getElementById("editProjectForm").addEventListener("submit", async (e) 
     if (result.success) {
       alert("✅ Project updated successfully!");
 
-      // Close modal smoothly
       const modal = document.getElementById("editProjectModal");
       modal.classList.remove("active");
       setTimeout(() => (modal.style.display = "none"), 300);
 
-      // OPTIONAL: update the card content instantly (no reload)
       const id = formData.get("id");
       const title = formData.get("title");
       const category = formData.get("category");
@@ -225,14 +220,13 @@ document.getElementById("editProjectForm").addEventListener("submit", async (e) 
 });
 
 
-// Handle Delete via AJAX
+// ===== Delete =====
 document.querySelectorAll(".delete-btn").forEach((btn) => {
   btn.addEventListener("click", async (e) => {
     e.stopPropagation();
     const id = btn.dataset.id;
-
-    // Confirm before deleting
     const confirmed = confirm("⚠️ Are you sure you want to delete this project?");
+
     if (!confirmed) return;
 
     try {
@@ -251,7 +245,6 @@ document.querySelectorAll(".delete-btn").forEach((btn) => {
       if (result.success) {
         alert("✅ Project deleted successfully!");
 
-        // Remove the card visually
         const card = btn.closest(".card-with-modal");
         if (card) {
           card.style.transition = "opacity 0.3s ease";

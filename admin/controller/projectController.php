@@ -91,28 +91,10 @@ function update($project)
     exit;
 }
 
-/*
 function delete($project)
 {
     header('Content-Type: application/json');
 
-    $id = $_POST['id'] ?? null;
-    if (!$id) {
-        echo json_encode(['error' => 'Missing project ID']);
-        exit;
-    }
-
-    $project->delete($id);
-    echo json_encode(['success' => true]);
-    exit;
-}
-*/
-
-function delete($project)
-{
-    header('Content-Type: application/json');
-
-    // Check if ID was sent
     if (empty($_POST['id'])) {
         echo json_encode(['success' => false, 'error' => 'No project ID received']);
         exit;
@@ -121,7 +103,6 @@ function delete($project)
     $id = $_POST['id'];
 
     try {
-        // Call delete function from Project model
         $result = $project->delete($id);
 
         if ($result) {
@@ -135,8 +116,6 @@ function delete($project)
 
     exit;
 }
-
-
 
 function show($project)
 {

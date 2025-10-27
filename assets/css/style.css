@@ -660,7 +660,7 @@ section {
     justify-content: center;
 }
 
-.btn{
+.btn a{
     border: 2px solid var(--border-color);
     box-shadow: 4px 4px var(--shadow-color);
     border-radius: 3rem;
@@ -673,13 +673,14 @@ section {
     font-weight: var(--font-bold);
     transition: color 0.3s var(--transition);
     z-index: 1;
+    text-decoration: none;
 }
 
-.btn:hover{
+.btn a:hover{
     color: var(--white-color);
 }
 
-.btn::before{
+.btn a::before{
     content: '';
     position: absolute;
     inset: 2px;
@@ -692,7 +693,7 @@ section {
     transition: all 0.7s var(--transition);
 }
 
-.btn:hover::before{
+.btn a:hover::before{
     transform: scale(1);
     filter: blur(0);
     opacity: 1;
@@ -704,11 +705,16 @@ section {
     gap: 2rem;
     justify-content: center;
 }
-.about-socials i{
+.about-socials a{
     font-size: 2.5rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    text-decoration: none;
 }
-.about-socials i:hover{
+.about-socials a:hover{
     transform: scale(1.1);
+}
+
+.about-socials i{
+    color: var(--title-color);
 }
