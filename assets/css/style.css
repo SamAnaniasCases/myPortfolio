@@ -51,6 +51,8 @@
     --white-color: hsl(var(--hue), 20%, 90%);
     --shadow-color: hsla(var(--hue), 60%, 2%, 0.6);
 
+    --gradient-swap: #F4D800;
+
 }
 :root{
 
@@ -81,6 +83,7 @@
     --gradient-direct: to right;
     --gradient-start: #EF2B05;
     --gradient-end: #F4D800;
+    --gradient-swap: #EF2B05;
 
     /* --- FONT FAMILY --- */
     --body-font: 'Jost', sans-serif;

@@ -20,7 +20,9 @@ $projects = $project->all();
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/experience.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/contact.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/portfolio.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/resume.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/responsive.css">
+
 
     <!-- https://remixicon.com/ for icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -51,7 +53,7 @@ $projects = $project->all();
 
         </div>
 
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <i class="ri-menu-line" id="menu-icon"></i>
 
         <button class="dlmode" id="dlmode">
             <i class="ri-moon-clear-line"></i>
@@ -89,6 +91,8 @@ $projects = $project->all();
         </div>
     </section>
 
+    <!-- ===== ABOUT SECTION ===== -->
+
     <section class="about" id="about">
         <div class="about-container">
             <img src="<?php echo BASE_URL; ?>assets/images/confused.jpg" alt="confusedmf">
@@ -103,7 +107,7 @@ $projects = $project->all();
 
                 <div class="about-btn">
 
-                    <div class="btn"><a href="">Read More</a></div>
+                    <div class="btn"><a href="" id="openResume">Read More</a></div>
                     <div class="btn"><a href="#contacts">Contacts</a></div>
                 </div>
 
@@ -115,7 +119,218 @@ $projects = $project->all();
             </div>
         </div>
     </section>
+
+
+    <!-- ===== RESUME READ MORE ===== -->
     
+    <section class="sue-section nav-menu-section" id="resume">
+
+        <div class="resume-modal" id="resumeModal">
+            <div class="resume-modal-content">
+                <span class="close-resume">&times;</span>
+
+
+        <div class="sue-container sue-sub-container">
+            <div class="sue-wrapper">
+                    <h3 class="section-title" data-title="Combination of Skills & Experience">My Resume</h3> 
+            </div>
+            <div class="resume-tabs">
+                <a class="tab-btn active"><i class="ri-graduation-cap-line"></i>Education</a>
+                <a class="tab-btn"><i class="ri-sparkling-line"></i>Experience</a>
+                <a class="tab-btn"><i class="ri-user-settings-line"></i>Personal Skills</a>
+            </div>
+            <div class="section-content">
+                <div class="resume-tab-content education active">
+                    <div class="resume-line"></div>
+                    <div class="resume-items">
+
+                    <div class="item item-left">
+                        <div class="info">
+                            <i class="ri-graduation-cap-fill"></i>
+                            <div>
+                                <h5>Simeon Ayuda Elementary School</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2013</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item item-right">
+                        <div class="info">
+                            <i class="ri-graduation-cap-fill"></i>
+                            <div>
+                                <h5>Arcelo</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2020</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item item-left">
+                        <div class="info">
+                            <i class="ri-graduation-cap-fill"></i>
+                            <div>
+                                <h5>Manila</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2013</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item item-right">
+                        <div class="info">
+                            <i class="ri-graduation-cap-fill"></i>
+                            <div>
+                                <h5>CTU</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2020</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+                <div class="resume-tab-content experience">
+                    <div class="resume-line"></div>
+                    <div class="resume-items">
+
+                    <div class="item item-left">
+                        <div class="info">
+                            <i class="ri-sparkling-fill"></i>
+                            <div>
+                                <h5>TESDA</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2013</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="item item-right">
+                        <div class="info">
+                            <i class="ri-sparkling-fill"></i>
+                            <div>
+                                <h5>WORK IMMERSION</h5>
+                                <p>Liloan, Cebu</p>
+                                <span>2012-2013</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+                <div class="resume-tab-content personal-skills">
+                    <div class="skill-container">
+
+                        <div class="skill-card">
+                            <div class="skill-title">
+                            <i class="ri-macbook-fill"></i>
+                            <span>Front-End Developer</span>
+                            </div>
+                            <div class="skill-categories">
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>HTML</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>CSS</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>JS</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>BOOTSRAP</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>SHEESH</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-title">
+                            <i class="ri-macbook-fill"></i>
+                            <span>Back-End Developer</span>
+                            </div>
+                            <div class="skill-categories">
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>HTML</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>CSS</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>JS</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>BOOTSRAP</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>SHEESH</h5>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div> 
+            </div>
+        </div>       
+    </section>
+
+
     <!-- ===== Experience section ====== -->
 
     <section class="experience section" id="experience">
@@ -459,6 +674,8 @@ $projects = $project->all();
 <script src="<?php echo BASE_URL; ?>assets/js/contactsubmit.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/myPortDice.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/swiper.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/resumejs.js"></script>
+
 
 </body>
 </html>

@@ -28,6 +28,7 @@ darkmodelogo.addEventListener("click", darkact);
 
 
 
+/* ===== NAV BAR OPEN CLOSE ===== */
 const btn_container = document.getElementById("nav-btn-container");
 let lastScroll = 0;
 
@@ -41,4 +42,20 @@ window.addEventListener('scroll', () => {
         btn_container.classList.remove('collapsed');
     }
     lastScroll = currentScroll;
+});
+
+// ===== Mobile Menu Toggle =====
+const menuIcon = document.getElementById("menu-icon");
+
+menuIcon.addEventListener("click", () => {
+  btn_container.classList.toggle("active");
+  menuIcon.classList.toggle("active");
+});
+
+// Close menu when clicking a link
+document.querySelectorAll(".nav-btn a").forEach(link => {
+  link.addEventListener("click", () => {
+    btn_container.classList.remove("active");
+    menuIcon.classList.remove("active");
+  });
 });

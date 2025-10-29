@@ -179,7 +179,7 @@ document.getElementById("editProjectForm").addEventListener("submit", async (e) 
   e.preventDefault(); 
 
   const form = e.target;
-  const formData = new FormData(form); // capture all fields
+  const formData = new FormData(form);
 
   try {
 
