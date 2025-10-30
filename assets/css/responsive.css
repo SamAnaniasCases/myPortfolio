@@ -3,17 +3,63 @@
    ============================================== */
 
 @media (max-width: 1200px) {
+/*  ==============================================
+    HEADER
+    ============================================== */
     .header {
         padding: 0.5rem 1rem;
-        gap: 1rem;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
+    .nav-btn-container {
+        gap: 1rem;
+        padding: 6px 1rem;
+    }
     .nav-btn {
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+    .hlogo {
+        font-size: var(--h3-font-size);
     }
 
     .dlmode {
-        right: 7rem;
+        position: static;
+        margin-right: 0.3rem;
+    }
+
+    .log-in,
+    .user-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.3rem 0.7rem;
+        flex-shrink: 0;
+    }
+
+    .loginbtn,
+    .username-btn {
+        font-size: var(--small-font-size);
+    }
+
+
+/*  ==============================================
+    RESUME
+    ============================================== */
+    .resume-modal-content {
+        max-width: 900px; 
+    }
+
+    .skill-categories {
+        column-gap: 40px; 
+    }
+
+    .skill-container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr; 
+        row-gap: 30px; 
     }
 }
 
@@ -23,19 +69,12 @@
 /*  ==============================================
     HEADER
     ============================================== */
-    .header {
-        padding: 0.5rem 1rem;
-        gap: 1rem;
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-left: auto;
     }
-
-    .nav-btn {
-        gap: 2rem;
-    }
-
-    .dlmode {
-        right: 7rem;
-    }
-
 
  /* ==============================================
     ABOUT
@@ -49,11 +88,11 @@
     }
 
     .about-txt h1 {
-        font-size: 3rem;
+        font-size: var(--h1-font-size);
     }
 
     .about-txt span {
-        font-size: 1.75rem;
+        font-size: var(--h2-font-size);
     }
 
     .btn a {
@@ -66,13 +105,49 @@
 /* ==============================================
     RESUME
     ============================================== */
+    .resume-modal-content {
+        max-width: 90%;
+    }
+
+    .resume-tabs {
+        column-gap: 20px;
+        row-gap: 20px;
+        margin-bottom: 80px;
+    }
+
+    .resume-tabs .tab-btn.active {
+        padding: 10px 20px; 
+    }
+
+    .resume-items .item .info {
+        width: 200px; 
+    }
+
+    .resume-items .item-left .info {
+        right: 25px; 
+    }
+
+    .resume-items .item-right .info {
+        left: 35px; 
+    }
 
 
 /* ==============================================
-    RESUME
+    EXPERIENCE
     ============================================== */
+    .exp-description {
+        min-height: 150px;
+    }
 
+    .exp-title {
+        font-size: var(--normal-font-size);
+    }
 
+    .card {
+        padding: 1.5rem;
+    }
+
+    
 /* ==============================================
     PORTFOLIO
     ============================================== */
@@ -103,7 +178,7 @@
     #menu-icon {
         display: block;
         cursor: pointer;
-        font-size: 1.9rem;
+        font-size: var(--h2-font-size);
         color: var(--title-color);
         z-index: 1100;
         transition: 0.3s ease;
@@ -148,7 +223,7 @@
     }
 
     .nav-btn li a {
-        font-size: 1rem;
+        font-size: var(--normal-font-size);
         color: var(--title-color);
     }
 
@@ -167,16 +242,31 @@
     }
 
     .loginbtn {
-        font-size: 0.9rem;
+        font-size: var(--small-font-size);
     }
 
     
+/*  ==============================================
+    RESUME
+    ============================================== */
+    .resume-modal-content {
+        max-width: 80%; 
+    }
 
+    .skill-container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr; 
+        column-gap: 0;
+        row-gap: 30px;
+    }
+
+    .skill-card {
+        padding: 40px 15px;
+    }
 }
 
-/* ==============================================
-   FOR MOBILE SCREENS (<=768px)
-   ============================================== */
+
    
 @media (max-width: 768px) {
     
@@ -199,7 +289,7 @@
     #menu-icon {
         display: block;
         cursor: pointer;
-        font-size: 1.9rem;
+        font-size: var(--h2-font-size);
         color: var(--title-color);
         z-index: 1100;
         transition: 0.3s ease;
@@ -244,7 +334,7 @@
     }
 
     .nav-btn li a {
-        font-size: 1rem;
+        font-size: var(--normal-font-size);
         color: var(--title-color);
     }
 
@@ -263,7 +353,7 @@
     }
 
     .loginbtn {
-        font-size: 0.9rem;
+        font-size: var(--small-font-size);
     }
 
 
@@ -293,15 +383,15 @@
     }
 
     .about-txt h3 {
-        font-size: 1.25rem;
+        font-size: var(--larger-font-size);
     }
 
     .about-txt h1 {
-        font-size: 2.2rem;
+        font-size: var(--h1-font-size);
     }
 
     .about-txt span {
-        font-size: 1.25rem;
+        font-size: var(--larger-font-size);
     }
 
     .about-btn {
@@ -320,12 +410,116 @@
     }
 
     .about-socials a {
-        font-size: 2rem;
+        font-size: var(--h2-font-size);
     }
 
 
 /* ==============================================
     RESUME
     ============================================== */
+     .resume-modal-content {
+        margin: 2% auto;
+        padding: 1.5rem;
+        width: 95%; 
+    }
+
+    .resume-tabs .tab-btn {
+        font-size: var(--small-font-size);
+        padding: 8px 0; 
+    }
+
+    .resume-tabs .tab-btn i {
+        font-size: var(--normal-font-size); 
+    }
+    
+    .resume-tabs .tab-btn.active {
+        padding: 8px 12px;
+    }
+
+    .resume-tab-content.active {
+        display: block; 
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .education .resume-line,
+    .experience .resume-line {
+        display: none;
+    }
+
+    .resume-items {
+        position: static;
+        row-gap: 50px; 
+        padding: 0;
+        align-items: flex-start; 
+        width: 100%;
+    }
+
+    .resume-items .item {
+        width: 100%;
+        justify-content: flex-start; 
+        padding-left: 15px; 
+    }
+    
+    .resume-items .item::before {
+        left: 0; 
+        top: 0;
+        transform: translateY(15px);
+    }
+    
+    .resume-items .item .info {
+        position: static; 
+        width: auto;
+        column-gap: 15px;
+        flex-direction: row; 
+        align-items: flex-start;
+        padding-left: 20px; 
+    }
+
+    .resume-items .item-left .info,
+    .resume-items .item-right .info {
+        right: auto;
+        left: auto;
+    }
+
+    .resume-items .item .info i {
+        font-size: var(--large-font-size);
+    }
+
+    .resume-items .item .info h5 {
+        font-size: var(--normal-font-size);
+    }
+
+    .resume-items .item .info p {
+        font-size: var(--small-font-size);
+    }
+
+    .education, .experience {
+        transform: translateY(0); 
+    }
+
+    .skill-categories {
+        grid-template-columns: 1fr; 
+        column-gap: 0;
+        row-gap: 25px;
+        padding: 0 15px;
+        place-items: flex-start;
+    }
+
+    .skill-title {
+        margin-bottom: 30px;
+    }
+    
+    .skill-title i {
+        font-size: var(--large-font-size);
+    }
+    
+    .skill-title span {
+        font-size: var(--normal-font-size);
+    }
+    
+    .skill-info h5 {
+        font-size: var(--normal-font-size);
+    }
     
 }

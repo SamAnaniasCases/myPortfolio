@@ -45,7 +45,6 @@
 
 .resume-tab-content{
     position: relative;
-    /* display: flex; */
     width: 100%;
     justify-content: center;
     margin-bottom: 25px;
@@ -58,7 +57,7 @@
 .education .resume-line{
     background: var(--bgcontrast-color);
     width: 2px;
-    height: 380px;
+    height: 250px;
 }
 
 .resume-items{
@@ -146,7 +145,7 @@
     display: grid;
     place-items: center;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 50px;
+    column-gap: 25px;
     row-gap: 50px;
 }
 
@@ -157,7 +156,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px 25px;
+    padding: 50px 0;
     border-bottom: 5px solid var(--gradient-swap);
     border-radius: 10px;
 }
@@ -264,175 +263,4 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-@media screen and (max-width: 1200px) {
-    .resume-modal-content {
-        max-width: 900px; 
-    }
-
-    .skill-categories {
-        column-gap: 40px; 
-    }
-
-    .skill-container {
-        max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr; 
-        row-gap: 30px; 
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .resume-modal-content {
-        max-width: 90%;
-    }
-
-
-    .resume-tabs {
-        column-gap: 20px;
-        row-gap: 20px;
-        margin-bottom: 80px;
-    }
-
-    .resume-tabs .tab-btn.active {
-        padding: 10px 20px; 
-    }
-
-    .resume-items .item .info {
-        width: 200px; 
-    }
-
-    .resume-items .item-left .info {
-        right: 25px; 
-    }
-
-    .resume-items .item-right .info {
-        left: 35px; 
-    }
-}
-
-@media screen and (max-width: 940px) {
-    .resume-modal-content {
-        max-width: 80%; 
-    }
-
-    .skill-container {
-        max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr; 
-        column-gap: 0;
-        row-gap: 30px;
-    }
-
-    .skill-card {
-        padding: 40px 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .resume-modal-content {
-        margin: 2% auto;
-        padding: 1.5rem;
-        width: 95%; 
-    }
-
-    .resume-tabs .tab-btn {
-        font-size: var(--small-font-size);
-        padding: 8px 0; 
-    }
-
-    .resume-tabs .tab-btn i {
-        font-size: var(--normal-font-size); 
-    }
-    
-    .resume-tabs .tab-btn.active {
-        padding: 8px 12px;
-    }
-
-    .resume-tab-content.active {
-        display: block; 
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    .education .resume-line,
-    .experience .resume-line {
-        display: none;
-    }
-
-    .resume-items {
-        position: static;
-        row-gap: 50px; 
-        padding: 0;
-        align-items: flex-start; 
-        width: 100%;
-    }
-
-    .resume-items .item {
-        width: 100%;
-        justify-content: flex-start; 
-        padding-left: 15px; 
-    }
-    
-    .resume-items .item::before {
-        left: 0; 
-        top: 0;
-        transform: translateY(15px);
-    }
-    
-    .resume-items .item .info {
-        position: static; 
-        width: auto;
-        column-gap: 15px;
-        flex-direction: row; 
-        align-items: flex-start;
-        padding-left: 20px; 
-    }
-
-    .resume-items .item-left .info,
-    .resume-items .item-right .info {
-        right: auto;
-        left: auto;
-    }
-
-    .resume-items .item .info i {
-        font-size: var(--large-font-size);
-    }
-
-    .resume-items .item .info h5 {
-        font-size: var(--normal-font-size);
-    }
-
-    .resume-items .item .info p {
-        font-size: var(--small-font-size);
-    }
-
-    .education, .experience {
-        transform: translateY(0); 
-    }
-
-    .skill-categories {
-        grid-template-columns: 1fr; 
-        column-gap: 0;
-        row-gap: 25px;
-        padding: 0 15px;
-        place-items: flex-start;
-    }
-
-    .skill-title {
-        margin-bottom: 30px;
-    }
-    
-    .skill-title i {
-        font-size: var(--large-font-size);
-    }
-    
-    .skill-title span {
-        font-size: var(--normal-font-size);
-    }
-    
-    .skill-info h5 {
-        font-size: var(--normal-font-size);
-    }
 }

@@ -61,7 +61,7 @@ $projects = $project->all();
         </button>
 
         <div class="log-in">
-        <a href="<?php echo BASE_URL; ?>admin/views/index.php">
+        <a href="<?php echo BASE_URL; ?>admin/views/loginregistration.php">
         <i class="ri-user-line"></i>
         <button class="loginbtn">Login</button>
         </a>
@@ -91,11 +91,11 @@ $projects = $project->all();
         </div>
     </section>
 
-    <!-- ===== ABOUT SECTION ===== -->
 
+    <!-- ===== ABOUT SECTION ===== -->
     <section class="about" id="about">
         <div class="about-container">
-            <img src="<?php echo BASE_URL; ?>assets/images/confused.jpg" alt="confusedmf">
+            <img src="<?php echo BASE_URL; ?>assets/images/SAM.jpg" alt="front image">
 
             <div class="about-info">
 
@@ -122,7 +122,6 @@ $projects = $project->all();
 
 
     <!-- ===== RESUME READ MORE ===== -->
-    
     <section class="sue-section nav-menu-section" id="resume">
 
         <div class="resume-modal" id="resumeModal">
@@ -150,7 +149,7 @@ $projects = $project->all();
                             <div>
                                 <h5>Simeon Ayuda Elementary School</h5>
                                 <p>Liloan, Cebu</p>
-                                <span>2012-2013</span>
+                                <span>2010-2016</span>
                             </div>
                         </div>
                     </div>
@@ -159,9 +158,9 @@ $projects = $project->all();
                         <div class="info">
                             <i class="ri-graduation-cap-fill"></i>
                             <div>
-                                <h5>Arcelo</h5>
+                                <h5>Arcelo Memorial National HS</h5>
                                 <p>Liloan, Cebu</p>
-                                <span>2012-2020</span>
+                                <span>2016-2022</span>
                             </div>
                         </div>
                     </div>
@@ -170,20 +169,9 @@ $projects = $project->all();
                         <div class="info">
                             <i class="ri-graduation-cap-fill"></i>
                             <div>
-                                <h5>Manila</h5>
-                                <p>Liloan, Cebu</p>
-                                <span>2012-2013</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item item-right">
-                        <div class="info">
-                            <i class="ri-graduation-cap-fill"></i>
-                            <div>
-                                <h5>CTU</h5>
-                                <p>Liloan, Cebu</p>
-                                <span>2012-2020</span>
+                                <h5>Cebu Technological University</h5>
+                                <p>Danao, Cebu</p>
+                                <span>2022-2026</span>
                             </div>
                         </div>
                     </div>
@@ -199,9 +187,9 @@ $projects = $project->all();
                         <div class="info">
                             <i class="ri-sparkling-fill"></i>
                             <div>
-                                <h5>TESDA</h5>
+                                <h5>Work Immersion : Animation</h5>
                                 <p>Liloan, Cebu</p>
-                                <span>2012-2013</span>
+                                <span>2021-2022</span>
                             </div>
                         </div>
                     </div>
@@ -210,9 +198,9 @@ $projects = $project->all();
                         <div class="info">
                             <i class="ri-sparkling-fill"></i>
                             <div>
-                                <h5>WORK IMMERSION</h5>
-                                <p>Liloan, Cebu</p>
-                                <span>2012-2013</span>
+                                <h5>TESDA : Web Design</h5>
+                                <p>Danao, Cebu</p>
+                                <span>2024-2025</span>
                             </div>
                         </div>
                     </div>
@@ -226,13 +214,37 @@ $projects = $project->all();
                         <div class="skill-card">
                             <div class="skill-title">
                             <i class="ri-macbook-fill"></i>
-                            <span>Front-End Developer</span>
+                            <span>Core Strengths</span>
                             </div>
                             <div class="skill-categories">
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>HTML</h5>
+                                        <h5>Creativity</h5>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>Adaptability</h5>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>Problem Solving</h5>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+
+                                <div class="skill">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div class="skill-info">
+                                        <h5>Attention to Detail</h5>
                                         <span>Advanced</span>
                                     </div>
                                 </div>
@@ -240,31 +252,7 @@ $projects = $project->all();
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>CSS</h5>
-                                        <span>Advanced</span>
-                                    </div>
-                                </div>
-
-                                <div class="skill">
-                                    <i class="ri-checkbox-circle-fill"></i>
-                                    <div class="skill-info">
-                                        <h5>JS</h5>
-                                        <span>Advanced</span>
-                                    </div>
-                                </div>
-
-                                <div class="skill">
-                                    <i class="ri-checkbox-circle-fill"></i>
-                                    <div class="skill-info">
-                                        <h5>BOOTSRAP</h5>
-                                        <span>Advanced</span>
-                                    </div>
-                                </div>
-
-                                <div class="skill">
-                                    <i class="ri-checkbox-circle-fill"></i>
-                                    <div class="skill-info">
-                                        <h5>SHEESH</h5>
+                                        <h5>Time Management</h5>
                                         <span>Advanced</span>
                                     </div>
                                 </div>
@@ -275,46 +263,46 @@ $projects = $project->all();
                         <div class="skill-card">
                             <div class="skill-title">
                             <i class="ri-macbook-fill"></i>
-                            <span>Back-End Developer</span>
+                            <span>Workplace Skills</span>
                             </div>
                             <div class="skill-categories">
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>HTML</h5>
-                                        <span>Advanced</span>
+                                        <h5>Communication</h5>
+                                        <span>Intermediate</span>
                                     </div>
                                 </div>
 
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>CSS</h5>
-                                        <span>Advanced</span>
+                                        <h5>Team Collaboration</h5>
+                                        <span>Intermediate</span>
                                     </div>
                                 </div>
 
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>JS</h5>
-                                        <span>Advanced</span>
+                                        <h5>Leadership</h5>
+                                        <span>Beginner</span>
                                     </div>
                                 </div>
 
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>BOOTSRAP</h5>
-                                        <span>Advanced</span>
+                                        <h5>Critical Thinking</h5>
+                                        <span>Intermediate</span>
                                     </div>
                                 </div>
 
                                 <div class="skill">
                                     <i class="ri-checkbox-circle-fill"></i>
                                     <div class="skill-info">
-                                        <h5>SHEESH</h5>
-                                        <span>Advanced</span>
+                                        <h5>Decision Making</h5>
+                                        <span>Intermediate</span>
                                     </div>
                                 </div>
 
@@ -332,7 +320,6 @@ $projects = $project->all();
 
 
     <!-- ===== Experience section ====== -->
-
     <section class="experience section" id="experience">
         <h2 class="section-title" data-title="My Experience">What Can I Do</h2>
 
@@ -344,10 +331,10 @@ $projects = $project->all();
 
                         <h3 class="exp-title">Java</h3>
 
-                        <p class="exp-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus corporis vitae voluptatum mollitia sint expedita placeat. Commodi qui consequuntur odio ea quae dolores voluptatibus.</p>
+                        <p class="exp-description">I’m currently learning the fundamentals of Java, focusing on object-oriented programming and logic building to strengthen my understanding of backend development.</p>
 
-                        <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
-                        </a>
+                        <!-- <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
+                        </a> -->
                     </div>
 
                     <div class="swiper-slide card">
@@ -355,10 +342,10 @@ $projects = $project->all();
 
                         <h3 class="exp-title">CSS</h3>
 
-                        <p class="exp-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti vitae natus unde facere autem officiis assumenda esse illum odio nobis, iure perferendis quasi at aliquid quia. Aliquid, illum! Delectus, ea?</p>
+                        <p class="exp-description">I have experience creating responsive and visually appealing layouts using CSS. I enjoy experimenting with animations, gradients, and modern design techniques to improve user experience.</p>
 
-                        <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
-                        </a>
+                        <!-- <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
+                        </a> -->
                     </div>
 
                     <div class="swiper-slide card">
@@ -366,10 +353,10 @@ $projects = $project->all();
 
                         <h3 class="exp-title">Javascript</h3>
 
-                        <p class="exp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias saepe quam eos accusamus exercitationem, itaque blanditiis sit eum nesciunt facilis labore consequatur illo quaerat cum, quod nobis? Eligendi, nihil vero!</p>
+                        <p class="exp-description">I’m exploring JavaScript to make websites more interactive. I’ve learned how to manipulate the DOM and handle basic events, and I’m continuing to expand my skills in front-end logic.</p>
 
-                        <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
-                        </a>
+                        <!-- <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
+                        </a> -->
                     </div>
 
                     <div class="swiper-slide card">
@@ -377,10 +364,10 @@ $projects = $project->all();
 
                         <h3 class="exp-title">C</h3>
 
-                        <p class="exp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta esse suscipit totam fugiat id modi accusamus expedita corrupti voluptates aliquam tenetur, exercitationem veritatis.</p>
+                        <p class="exp-description">C helped me build a solid foundation in programming logic, syntax, and problem-solving. It improved how I think about structuring code efficiently.</p>
 
-                        <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
-                        </a>
+                        <!-- <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
+                        </a> -->
                     </div>
 
                     <div class="swiper-slide card">
@@ -388,10 +375,10 @@ $projects = $project->all();
 
                         <h3 class="exp-title">HTML</h3>
 
-                        <p class="exp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem dicta recusandae quos adipisci nostrum impedit magni vel labore.</p>
+                        <p class="exp-description">HTML is where my journey began. I can confidently structure web pages, use semantic elements, and ensure accessibility for better web standards.</p>
 
-                        <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
-                        </a>
+                        <!-- <a href="" class="link">See More <i class="ri-arrow-right-line link-icon"></i>
+                        </a> -->
 
                     </div>
                 </div>
@@ -431,14 +418,16 @@ $projects = $project->all();
 
             <?php endforeach; ?>
 
+            <!--
             <button class="add-btn" id="addProjectBtn">
                             <i class="ri-add-line"></i> Add Project
             </button> 
+                -->
             
             </div>
 
 
-            <!-- ADD PROJECT -->
+            <!-- ADD PROJECT 
             <div class="portfolio-modal-backdrop" id="addProjectModal" style="display: none;">
                 <div class="portfolio-modal">
                     <a class="modal-close-btn" id="closeAddModal">
@@ -473,6 +462,7 @@ $projects = $project->all();
                     </div>
                 </div>
             </div>
+            -->
 
 
             <!-- CONTENT PROJECTS -->

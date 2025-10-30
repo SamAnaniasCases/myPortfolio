@@ -14,19 +14,19 @@ if (isset($_POST['register'])) {
     if ($result->num_rows > 0) {
         echo "<script>
             alert('Email already registered!');
-            window.location.href='" . BASE_URL . "admin/views/index.php';
+            window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
         </script>";
     } else {
         $sql = "INSERT INTO user_form (name, email, password) VALUES ('$name', '$email', '$password')";
         if ($conn->query($sql) === TRUE) {
             echo "<script>
                 alert('Registration successful! You can now log in.');
-                window.location.href='" . BASE_URL . "admin/views/index.php';
+                window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
             </script>";
         } else {
             echo "<script>
                 alert('Error during registration: " . $conn->error . "');
-                window.location.href='" . BASE_URL . "admin/views/index.php';
+                window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
             </script>";
         }
     }

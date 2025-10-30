@@ -226,12 +226,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5rem;
     padding: 0.5rem 1.5rem;
     background-color: transparent;
     color: var(--text-color);
     z-index: 1000;
     transform: translateX(-50%);
+    
 }
 
 .logo{
@@ -358,6 +358,7 @@ section {
     background: linear-gradient(var(--gradient-direct), 
     var(--gradient-start), var(--gradient-end));
 }
+
 .log-in:hover{
     transform: scale(1.03);
     background: linear-gradient(var(--gradient-direct), 
@@ -383,11 +384,17 @@ section {
     font-size: 2rem;
 }
 
+/* LOGOUT BUTTON */
+.logout-link span {
+    color: var(--const-color);
+    font-weight: var(--font-medium);
+}
+
    
 /* ==============================================
-   DARK/LIGHT MODE TOOGLE
+   DARK/LIGHT MODE TOGGLE (FIXED POSITION REMOVED)
    ============================================== */
-.dlmode{
+.dlmode {
     height: 30px;
     width: 30px;
     padding: 0;
@@ -395,38 +402,39 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0.6rem;
-    right: 8rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    margin-left: 3rem; /* small space before log-in */
 }
 
-.dlmode .ri-sun-fill{ 
+.dlmode .ri-sun-fill { 
     display: none;
 }
 
-.dlmode.active .ri-moon-clear-line{
+.dlmode.active .ri-moon-clear-line {
     display: none;
 }
 
-.dlmode.active .ri-sun-fill{
+.dlmode.active .ri-sun-fill {
     display: inline;
     color: white;
 }
 
-.dlmode:hover{
+.dlmode:hover {
     background-color: black;
 }
-.dlmode:hover .ri-moon-clear-line{
+
+.dlmode:hover .ri-moon-clear-line {
     color: white;
     animation: swing 1s ease-in-out infinite;
     transform-origin: top center;
 }
-.dlmode.active:hover{
+
+.dlmode.active:hover {
     background-color: white;
 }
-.dlmode:hover .ri-sun-fill{
+
+.dlmode:hover .ri-sun-fill {
     animation: spin 1s linear infinite;
     color: black;
 }
