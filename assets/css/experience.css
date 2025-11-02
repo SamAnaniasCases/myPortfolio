@@ -30,9 +30,6 @@
   overflow: visible !important;
 }
 
-
-
-
 .card::before{
     content: '';
     position: absolute;
