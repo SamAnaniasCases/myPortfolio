@@ -55,8 +55,6 @@ include __DIR__ . '/../../config/init.php';
             </div>
 
 
-
-
             <!-- ===== REGISTRATION FORM ===== -->
 
             <div class="form-box register">

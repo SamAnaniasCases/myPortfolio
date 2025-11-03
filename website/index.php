@@ -493,7 +493,7 @@ $projects = $project->all();
 
 
                                         <!-- EDIT / DELETE BUTTONS -->
-                                        <div class="modal-actions">
+                                        <!-- <div class="modal-actions">
                                         <button class="edit-btn"
                                             data-id="<?php echo $row['id']; ?>"
                                             data-category="<?php echo htmlspecialchars($row['category']); ?>"
@@ -506,7 +506,7 @@ $projects = $project->all();
                                         <button class="delete-btn"
                                             data-id="<?php echo $row['id']; ?>">
                                             <i class="ri-delete-bin-line"></i> Delete
-                                        </button>
+                                        </button> -->
                                         </div>                                 
                                     </div>
                                 </div>
@@ -519,7 +519,7 @@ $projects = $project->all();
     </div>
 
                     <!-- EDIT PROJECT -->
-    <div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
+    <!-- <div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
         <div class="portfolio-modal">
             <a class="modal-close-btn" id="closeEditModal"><i class="ri-close-line"></i></a>
             <div class="modal-content">
@@ -556,7 +556,7 @@ $projects = $project->all();
             </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 
 
