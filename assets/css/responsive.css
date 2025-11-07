@@ -17,18 +17,12 @@
 }
 
 
-
-/* ==============================================
-  FOR TABLETS AND SMALLER SCREEN
-   ============================================== */
-
 @media screen and (max-width: 1200px) {
 /*  ==============================================
     HEADER
     ============================================== */
     .header {
         padding: 0.5rem 1rem;
-        gap: 0.5rem;
         flex-wrap: nowrap;
         justify-content: space-between;
     }
@@ -111,10 +105,28 @@
   .portfolio-modal .modal-content .modal-title {
     font-size: 1.6rem;
   }
+
+
+/*  ==============================================
+    LOG-IN AND REGISTRATION
+    ============================================== */
+    .loginContainer {
+        width: 750px;
+        height: 500px;
+    }
+
+    .form-box {
+        padding: 30px;
+    }
+
+    .loginContainer.active .home-right {
+         transform: translateX(400%);
+    }
 }
 
 
 @media screen and (max-width: 1024px) {
+
     .section {
         padding: 6rem 1rem;
     }
@@ -231,6 +243,15 @@
         width: 100%;
         margin-inline: auto;
     }
+
+
+/* ==============================================
+    LOG-IN AND REGISTRATION
+    ============================================== */
+    .loginContainer {
+        width: 650px;
+        height: 480px;
+    }
 }
 
 
@@ -342,7 +363,7 @@
 
 
 /*  ==============================================
-    RESUME
+    PORTFOLIO
     ============================================== */
     .portfolio-modal {
         width: 95%;
@@ -366,6 +387,7 @@
         padding: 6px 12px;
         font-size: 0.9rem;
     }
+
 }
 
 
@@ -618,6 +640,75 @@
         width: 132px;
         top: 11px;
         left: 34%;
+    }
+
+    .loginContainer h1 {
+        width: 100%;
+    }
+
+
+/* ==============================================
+    LOG-IN AND REGISTRATION
+    ============================================== */
+    .loginContainer {
+        width: 100%; 
+        max-width: 500px;
+        height: auto;
+        min-height: 450px;
+    }
+
+    .home-button {
+        display: none !important; 
+    }
+
+    /* Style for the new mobile-only home link */
+    .mobile-home-link {
+        position: absolute; /* Position relative to the form-box */
+        top: 20px;
+        left: 20px;
+        font-size: var(--h3-font-size);
+        color: var(--title-color); /* Use your theme colors */
+        z-index: 10;
+        display: block !important;
+    }
+
+    .form-box {
+        position: relative; 
+        width: 100%;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .form-box p{
+        display: block !important;
+    }
+
+    .form-box.register {
+        transform: none;
+        display: none; 
+        left: auto; 
+        right: auto;
+    }
+
+    .toggle-box {
+        display: none; 
+    }
+
+    .loginContainer.active .form-box.login {
+        display: none;
+    }
+
+    .loginContainer.active .form-box.register {
+        display: flex; 
+    }
+    
+    .loginContainer.active .form-box {
+        transform: none;
+    }
+
+    .secLogin {
+        min-height: 100vh;
+        padding: 0;
     }
     
 }

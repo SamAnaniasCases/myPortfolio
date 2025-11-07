@@ -21,12 +21,17 @@ include __DIR__ . '/../../config/init.php';
 </head>
 
 
-<body>
+<body id="idbody">
     <section class="secLogin" id="seclogin">
         <div class="loginContainer">
 
             <!-- ===== LOGIN ===== -->
             <div class="form-box login">
+
+                <a href="<?php echo BASE_URL; ?>" class="mobile-home-link" style="display: none">
+                    <i class="ri-home-5-line"></i>
+                </a>
+
                 <form action="<?php echo BASE_URL; ?>admin/controller/login.php" method="POST">
                     <h1>Login</h1>
                     <div class="input-box">
@@ -38,19 +43,23 @@ include __DIR__ . '/../../config/init.php';
                         <input type="password" placeholder="Password" name="password" required>
                         <i class="ri-lock-2-fill"></i>
                     </div>
-                    <div class="forgot-link">
+
+                    <!-- <div class="forgot-link">
                         <a href="">Forgot Password?</a>
-                    </div>
+                    </div> -->
 
                     <button type="submit" class="btnLogin" name="login">Login</button>
-                    <p>or login with social platforms</p>
+
+                    <!-- <p>or login with social platforms</p>
                     <div class="social-icons">
                         <a href=""><i class="ri-google-fill"></i></a>
                         <a href=""><i class="ri-facebook-circle-fill"></i></a>
                         <a href=""><i class="ri-github-fill"></i></a>
         
 
-                    </div>
+                    </div> -->
+                    <p style="display: none;">Don't have an account? <span class="mobile-toggle register-btn" style="cursor: pointer; color: var(--primary-color); font-weight: bold;">Register</span></p>
+
                 </form>
             </div>
 
@@ -58,6 +67,11 @@ include __DIR__ . '/../../config/init.php';
             <!-- ===== REGISTRATION FORM ===== -->
 
             <div class="form-box register">
+
+                <a href="<?php echo BASE_URL; ?>" class="mobile-home-link" style="display: none">
+                    <i class="ri-home-5-line"></i>
+                </a>
+
                 <form action="<?php echo BASE_URL; ?>admin/controller/register.php" method="POST">
                     <h1>Registration</h1>
                     <div class="input-box">
@@ -76,14 +90,19 @@ include __DIR__ . '/../../config/init.php';
                     </div>
             
                     <button type="submit" class="btnLogin" name="register">Register</button>
-                    <p>or register with social platforms</p>
+
+                    <!-- <p>or register with social platforms</p>
+
                     <div class="social-icons">
                         <a href=""><i class="ri-google-fill"></i></a>
                         <a href=""><i class="ri-facebook-circle-fill"></i></a>
                         <a href=""><i class="ri-github-fill"></i></a>
         
 
-                    </div>
+                    </div> -->
+
+                    <p style="display: none;">Already have an account? <span class="mobile-toggle login-btn" style="cursor: pointer; color: var(--primary-color); font-weight: bold;">Login</span></p>
+                    
                 </form>
             </div>
 
@@ -93,16 +112,20 @@ include __DIR__ . '/../../config/init.php';
                         <i class="ri-home-5-line home-left home-button"></i>
                     </a>
                     <h1>Hello, Welcome to <br> your Cogito</h1>
+
                     <p>Don't have an account?</p>
                     <button class="btnLogin register-btn">Register</button>
+
                 </div>
 
                 <div class="toggle-panel toggle-right">
                     <a href="<?php echo BASE_URL; ?>">
                         <i class="ri-home-5-line home-right home-button"></i>
                     </a>
+
                     <h1>Welcome Back Cogito!</h1>
                     <p>Already have an account?</p>
+
                     <button class="btnLogin login-btn">Login</button>
                 </div>
             </div>
@@ -110,6 +133,7 @@ include __DIR__ . '/../../config/init.php';
     </section>
 
     <script src="<?php echo BASE_URL; ?>assets/js/forLogin.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/darkmodeJS.js"></script>
     
 </body>
 </html>

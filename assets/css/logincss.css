@@ -79,7 +79,7 @@ form{
 .input-box input{
     width: 100%;
     padding: 13px 50px 13px 20px;
-    background: var(--white-color);
+    background: var(--container-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     outline: none;
@@ -148,7 +148,7 @@ form{
     position: absolute;
     width: 300%;
     height: 100%;
-    background: var(--bg-color);
+    background: linear-gradient(var(--gradient-direct), var(--gradient-start), var(--gradient-end));
     z-index: 2;
     left: -250%;
     border-radius: 150px;
@@ -191,6 +191,7 @@ form{
     font-size: var(--h3-font-size);
     text-align: center;
     margin: 2px;
+    color: var(--const-color);
 }
 
 .toggle-panel p{
@@ -200,7 +201,7 @@ form{
 .toggle-panel .btnLogin{
     width: 160px;
     height: 46px;
-    background: transparent;
+    /* background: transparent; */
     border: 2px solid var(--border-color);
     box-shadow: none;
 }
@@ -209,9 +210,8 @@ form{
     position: fixed; 
     top: 20px;
     left: 20px;
-    padding: 10px 20px;
-    background: var(--bg-color); 
-    color: var(--title-color);
+    padding: 10px 20px; 
+    color: var(--const-color);
     text-decoration: none;
     font-weight: var(--font-semi-bold);
     border-radius: 25px;
@@ -222,7 +222,6 @@ form{
 }
 
 .home-button:hover {
-    color: var(--text-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }

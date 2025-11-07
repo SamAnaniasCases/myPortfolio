@@ -80,7 +80,7 @@
     --shadow-color: hsla(var(--hue), 80%, 15%, 0.2);
     --hover-color: hsl(var(--hue), 90%, 85%);
 
-    --gradient-direct: to right;
+    --gradient-direct: to left;
     --gradient-start: #EF2B05;
     --gradient-end: #F4D800;
     --gradient-swap: #EF2B05;
@@ -231,7 +231,7 @@ section {
     color: var(--text-color);
     z-index: 1000;
     transform: translateX(-50%);
-    
+    gap: 1rem;  
 }
 
 .logo{
