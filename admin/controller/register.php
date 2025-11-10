@@ -3,32 +3,39 @@ include __DIR__ . '/../../config/config.php';
 include __DIR__ . '/../../config/init.php';
 
 if (isset($_POST['register'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // hash password
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
 
-    // Check if email exists
-    $check = "SELECT * FROM user_form WHERE email='$email'";
-    $result = $conn->query($check);
+    if (empty($name) || empty($email) || empty($password)) {
+        $_SESSION['register_error'] = 'Please fill in all required fields.';
+        header("Location: " . BASE_URL . "admin/views/loginregistration.php");
+        exit();
+    }
 
-    if ($result->num_rows > 0) {
-        echo "<script>
-            alert('Email already registered!');
-            window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
-        </script>";
+    $stmt = $conn->prepare("SELECT id FROM user_form WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $_SESSION['register_error'] = 'Email is already registered!';
+        header("Location: " . BASE_URL . "admin/views/loginregistration.php");
+        exit();
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $conn->prepare("INSERT INTO user_form (name, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $name, $email, $hashedPassword);
+
+    if ($stmt->execute()) {
+        $_SESSION['flash_success'] = 'Registration successful! You can now log in.';
+        header("Location: " . BASE_URL . "admin/views/loginregistration.php");
+        exit();
     } else {
-        $sql = "INSERT INTO user_form (name, email, password) VALUES ('$name', '$email', '$password')";
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>
-                alert('Registration successful! You can now log in.');
-                window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
-            </script>";
-        } else {
-            echo "<script>
-                alert('Error during registration: " . $conn->error . "');
-                window.location.href='" . BASE_URL . "admin/views/loginregistration.php';
-            </script>";
-        }
+        $_SESSION['register_error'] = 'Error during registration. Please try again.';
+        header("Location: " . BASE_URL . "admin/views/loginregistration.php");
+        exit();
     }
 }
 ?>

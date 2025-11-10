@@ -13,6 +13,7 @@ $projects = $project->all();
     <meta name="viewport" content="width=device-width, 
     initial-scale=1.0">
 
+    
     <!--Main css-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
 
@@ -27,8 +28,10 @@ $projects = $project->all();
     <!-- https://remixicon.com/ for icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     
+    
     <!--swiperjs for swipe-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
 
     <title>MiCogito</title>
 
@@ -557,7 +560,7 @@ $projects = $project->all();
             </div>
         </div>
     </div> -->
-</section>
+    </section>
 
 
     <!-- ===== Contact Section ===== -->
@@ -606,29 +609,29 @@ $projects = $project->all();
                 <div class="contact-form-group grid">
 
                     <div class="contact-form-div">
-                        <label for="" class="contact-form-label">Your Full Name <b>*</b></label>
+                        <label for="contact-name" class="contact-form-label">Your Full Name <b>*</b></label>
 
-                        <input type="text" id="contact-name" name="name" class="contact-form-input">
+                        <input type="text" id="contact-name" name="name" class="contact-form-input" autocomplete="name">
 
                     </div>
 
                     <div class="contact-form-div">
-                        <label for="" class="contact-form-label">Your Email Address <b>*</b></label>
+                        <label for="contact-email" class="contact-form-label">Your Email Address <b>*</b></label>
 
-                        <input type="email" id="contact-email" name="email" class="contact-form-input">
+                        <input type="email" id="contact-email" name="email" class="contact-form-input" autocomplete="email">
                         
                     </div>
                 </div>
 
                     <div class="contact-form-div">
-                            <label for="" class="contact-form-label">Your Subject <b>*</b></label>
+                            <label for="contact-subject" class="contact-form-label">Your Subject <b>*</b></label>
 
                             <input type="text" id="contact-subject" name="subject" class="contact-form-input">
                             
                     </div>
                     
                     <div class="contact-form-div">
-                            <label for="" class="contact-form-label">Your Message <b>*</b></label>
+                            <label for="contact-message" class="contact-form-label">Your Message <b>*</b></label>
 
                             <!--'name' is to connect to the emailjs-->
                             <textarea id="contact-message" name="message" class="contact-form-input contact-form-area"></textarea>

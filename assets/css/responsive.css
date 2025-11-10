@@ -25,17 +25,18 @@
         padding: 0.5rem 1rem;
         flex-wrap: nowrap;
         justify-content: space-between;
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
     .nav-btn-container {
         gap: 1rem;
         padding: 6px 1rem;
     }
+    
     .nav-btn {
         gap: 1.5rem;
-    }
-    .hlogo {
-        font-size: var(--h3-font-size);
     }
 
     .dlmode {
@@ -50,11 +51,6 @@
         justify-content: center;
         padding: 0.3rem 0.7rem;
         flex-shrink: 0;
-    }
-
-    .loginbtn,
-    .username-btn {
-        font-size: var(--small-font-size);
     }
 
 
@@ -266,8 +262,6 @@
         padding: 0.75rem 1rem;
         gap: 0;
         background: var(--glass-color);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
         border-bottom: 1px solid var(--border-color);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -642,10 +636,6 @@
         left: 34%;
     }
 
-    .loginContainer h1 {
-        width: 100%;
-    }
-
 
 /* ==============================================
     LOG-IN AND REGISTRATION
@@ -704,6 +694,10 @@
     
     .loginContainer.active .form-box {
         transform: none;
+    }
+    
+    .loginContainer h1 {
+        width: 100%;
     }
 
     .secLogin {

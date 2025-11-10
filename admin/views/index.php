@@ -556,7 +556,7 @@ $projects = $project->all();
             </div>
         </div>
     </div>
-</section>
+    </section>
 
 
     <!-- ===== Contact Section ===== -->
@@ -605,29 +605,29 @@ $projects = $project->all();
                 <div class="contact-form-group grid">
 
                     <div class="contact-form-div">
-                        <label for="" class="contact-form-label">Your Full Name <b>*</b></label>
+                        <label for="contact-name" class="contact-form-label">Your Full Name <b>*</b></label>
 
-                        <input type="text" id="contact-name" name="name" class="contact-form-input">
+                        <input type="text" id="contact-name" name="name" class="contact-form-input" autocomplete="name">
 
                     </div>
 
                     <div class="contact-form-div">
-                        <label for="" class="contact-form-label">Your Email Address <b>*</b></label>
+                        <label for="contact-email" class="contact-form-label">Your Email Address <b>*</b></label>
 
-                        <input type="email" id="contact-email" name="email" class="contact-form-input">
+                        <input type="email" id="contact-email" name="email" class="contact-form-input" autocomplete="email">
                         
                     </div>
                 </div>
 
                     <div class="contact-form-div">
-                            <label for="" class="contact-form-label">Your Subject <b>*</b></label>
+                            <label for="contact-subject" class="contact-form-label">Your Subject <b>*</b></label>
 
                             <input type="text" id="contact-subject" name="subject" class="contact-form-input">
                             
                     </div>
                     
                     <div class="contact-form-div">
-                            <label for="" class="contact-form-label">Your Message <b>*</b></label>
+                            <label for="contact-message" class="contact-form-label">Your Message <b>*</b></label>
 
                             <!--'name' is to connect to the emailjs-->
                             <textarea id="contact-message" name="message" class="contact-form-input contact-form-area"></textarea>
