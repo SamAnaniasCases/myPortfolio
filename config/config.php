@@ -1,8 +1,8 @@
 <?php
 $servername = "db.fr-pari1.bengt.wasmernet.com"; 
-$username = "5beec03174518000c33f2c0be1f0";
-$password = "06915bee-c031-75d4-8000-5230ac4e65aa";     
-$dbname = "project_db"; 
+$username = "5cb8c5ec7359800003114b957f49";
+$password = "06915cb8-c5ec-7503-8000-d3a1d912986b";     
+$dbname = "project2_db"; 
 $port = "10272";
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

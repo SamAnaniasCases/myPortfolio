@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = 'db.fr-pari1.bengt.wasmernet.com';
-    private $db_name = 'project_db';
-    private $username = '5beec03174518000c33f2c0be1f0';
-    private $password = '06915bee-c031-75d4-8000-5230ac4e65aa';
+    private $db_name = 'project2_db';
+    private $username = '5cb8c5ec7359800003114b957f49';
+    private $password = '06915cb8-c5ec-7503-8000-d3a1d912986b';
     private $port = "10272";
     private $conn;
 
