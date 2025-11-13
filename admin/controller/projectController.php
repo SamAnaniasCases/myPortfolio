@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../model/Project.php';
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/../model/project.php';
 
 $project = new Project();
 
