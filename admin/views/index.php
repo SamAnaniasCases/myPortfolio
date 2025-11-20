@@ -392,7 +392,7 @@ $projects = $project->all();
     <!-- ===== Portfolio ===== -->
     <section class="sue-section nav-menu-section" id="portfolio"
     style="padding-top: 1rem;">
-        <div class="container sue-sub-contaier">
+        <div class="container sue-sub-container">
             <div class="sue-wrapper">
                 <h2 class="section-title" data-title="My Works">Projects</h2>
 

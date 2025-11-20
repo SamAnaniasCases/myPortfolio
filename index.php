@@ -13,7 +13,6 @@ $projects = $project->all();
     <meta name="viewport" content="width=device-width, 
     initial-scale=1.0">
 
-    
     <!--Main css-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
 
@@ -28,10 +27,8 @@ $projects = $project->all();
     <!-- https://remixicon.com/ for icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     
-    
     <!--swiperjs for swipe-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
-
 
     <title>MiCogito</title>
 
@@ -41,19 +38,17 @@ $projects = $project->all();
         <a href="#home" class="logo"><span>Mi Cogito</span></a>
         
         <div class="nav-btn-container container" id="nav-btn-container">
-
             <i class="ri-code-s-slash-line left-logo hlogo"></i>
 
-                <ul class="nav-btn" id="nav-btn">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#portfolio">Projects</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
-                </ul>
+            <ul class="nav-btn" id="nav-btn">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
 
             <i class="ri-folder-fill hlogo right-logo"></i>
-
         </div>
 
         <i class="ri-menu-line" id="menu-icon"></i>
@@ -94,11 +89,11 @@ $projects = $project->all();
         </div>
     </section>
 
-
     <!-- ===== ABOUT SECTION ===== -->
+
     <section class="about" id="about">
         <div class="about-container">
-            <img src="<?php echo BASE_URL; ?>assets/images/SAM.jpg" alt="front image">
+            <img src="<?php echo BASE_URL; ?>assets/images/SAM.jpg" alt="confusedmf">
 
             <div class="about-info">
 
@@ -125,6 +120,7 @@ $projects = $project->all();
 
 
     <!-- ===== RESUME READ MORE ===== -->
+    
     <section class="sue-section nav-menu-section" id="resume">
 
         <div class="resume-modal" id="resumeModal">
@@ -323,6 +319,7 @@ $projects = $project->all();
 
 
     <!-- ===== Experience section ====== -->
+
     <section class="experience section" id="experience">
         <h2 class="section-title" data-title="My Experience">What Can I Do</h2>
 
@@ -393,7 +390,7 @@ $projects = $project->all();
     <!-- ===== Portfolio ===== -->
     <section class="sue-section nav-menu-section" id="portfolio"
     style="padding-top: 1rem;">
-        <div class="container sue-sub-contaier">
+        <div class="container sue-sub-container">
             <div class="sue-wrapper">
                 <h2 class="section-title" data-title="My Works">Projects</h2>
 
@@ -421,16 +418,14 @@ $projects = $project->all();
 
             <?php endforeach; ?>
 
-            <!--
-            <button class="add-btn" id="addProjectBtn">
+            <button class="add-btn" id="addProjectBtn" style="display: none;">
                             <i class="ri-add-line"></i> Add Project
             </button> 
-                -->
             
             </div>
 
 
-            <!-- ADD PROJECT 
+            <!-- ADD PROJECT -->
             <div class="portfolio-modal-backdrop" id="addProjectModal" style="display: none;">
                 <div class="portfolio-modal">
                     <a class="modal-close-btn" id="closeAddModal">
@@ -465,7 +460,6 @@ $projects = $project->all();
                     </div>
                 </div>
             </div>
-            -->
 
 
             <!-- CONTENT PROJECTS -->
@@ -496,7 +490,7 @@ $projects = $project->all();
 
 
                                         <!-- EDIT / DELETE BUTTONS -->
-                                        <!-- <div class="modal-actions">
+                                        <div class="modal-actions" style="display: none;">
                                         <button class="edit-btn"
                                             data-id="<?php echo $row['id']; ?>"
                                             data-category="<?php echo htmlspecialchars($row['category']); ?>"
@@ -509,7 +503,7 @@ $projects = $project->all();
                                         <button class="delete-btn"
                                             data-id="<?php echo $row['id']; ?>">
                                             <i class="ri-delete-bin-line"></i> Delete
-                                        </button> -->
+                                        </button>
                                         </div>                                 
                                     </div>
                                 </div>
@@ -522,7 +516,7 @@ $projects = $project->all();
     </div>
 
                     <!-- EDIT PROJECT -->
-    <!-- <div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
+    <div class="portfolio-modal-backdrop" id="editProjectModal" style="display: none;">
         <div class="portfolio-modal">
             <a class="modal-close-btn" id="closeEditModal"><i class="ri-close-line"></i></a>
             <div class="modal-content">
@@ -559,7 +553,7 @@ $projects = $project->all();
             </form>
             </div>
         </div>
-    </div> -->
+    </div>
     </section>
 
 

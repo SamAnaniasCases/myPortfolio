@@ -34,7 +34,7 @@ function create($project)
     // Handle image upload
     $image = '';
         if (!empty($_FILES['image']['name'])) {
-            $targetDir = __DIR__ . '/../../website/uploads/';
+            $targetDir = __DIR__ . '/../../uploads/';
             if (!file_exists($targetDir)) mkdir($targetDir, 0777, true);
             $fileName = basename($_FILES['image']['name']);
             $filePath = $targetDir . $fileName;
@@ -56,7 +56,7 @@ function create($project)
         $ref = str_replace(["\r", "\n"], '', $_SERVER['HTTP_REFERER']);
         header('Location: ' . $ref);
     } else {
-        header('Location: ../../website/index.php');
+        header('Location: ../../index.php');
     }
     exit;
 }
@@ -74,7 +74,7 @@ function update($project)
     $image = $_POST['existing_image'] ?? '';
 
     if (!empty($_FILES['image']['name'])) {
-        $targetDir = __DIR__ . '/../../website/uploads/';
+        $targetDir = __DIR__ . '/../../uploads/';
         if (!file_exists($targetDir)) mkdir($targetDir, 0777, true);
         $fileName = basename($_FILES['image']['name']);
         $filePath = $targetDir . $fileName;
@@ -118,7 +118,7 @@ function delete($project)
 
         // 2. Delete the image file if it exists
         if (!empty($item['image'])) {
-        $imagePath = __DIR__ . '/../../website/' . $item['image'];
+        $imagePath = __DIR__ . '/../../' . $item['image'];
 
 
             if (file_exists($imagePath)) {
