@@ -30,14 +30,15 @@ function create($project)
 {
     // Handle image upload
     $image = '';
-    if (!empty($_FILES['image']['name'])) {
-        $targetDir = __DIR__ . '/../../uploads/';
-        if (!file_exists($targetDir)) mkdir($targetDir, 0777, true);
-        $fileName = basename($_FILES['image']['name']);
-        $filePath = $targetDir . $fileName;
-        move_uploaded_file($_FILES['image']['tmp_name'], $filePath);
-        $image = 'uploads/' . $fileName;
-    }
+        if (!empty($_FILES['image']['name'])) {
+            $targetDir = __DIR__ . '/../../website/uploads/';
+            if (!file_exists($targetDir)) mkdir($targetDir, 0777, true);
+            $fileName = basename($_FILES['image']['name']);
+            $filePath = $targetDir . $fileName;
+            move_uploaded_file($_FILES['image']['tmp_name'], $filePath);
+            $image = 'uploads/' . $fileName;
+        }
+
 
     $data = [
         'category'    => $_POST['category'] ?? 'Uncategorized',
@@ -70,13 +71,14 @@ function update($project)
     $image = $_POST['existing_image'] ?? '';
 
     if (!empty($_FILES['image']['name'])) {
-        $targetDir = __DIR__ . '/../../uploads/';
+        $targetDir = __DIR__ . '/../../website/uploads/';
         if (!file_exists($targetDir)) mkdir($targetDir, 0777, true);
         $fileName = basename($_FILES['image']['name']);
         $filePath = $targetDir . $fileName;
         move_uploaded_file($_FILES['image']['tmp_name'], $filePath);
         $image = 'uploads/' . $fileName;
     }
+
 
     $data = [
         'id'          => $id,
@@ -103,20 +105,35 @@ function delete($project)
     $id = $_POST['id'];
 
     try {
+        // 1. Fetch the project (this gives us the image filename)
+        $item = $project->show($id);
+
+        if (!$item) {
+            echo json_encode(['success' => false, 'error' => 'Project not found']);
+            exit;
+        }
+
+        // 2. Delete the image file if it exists
+        if (!empty($item['image'])) {
+        $imagePath = __DIR__ . '/../../website/' . $item['image'];
+
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath); // delete the file
+            }
+        }
+
+        // 3. Delete from the database
         $result = $project->delete($id);
 
-        if ($result) {
-            echo json_encode(['success' => true]);
-        } else {
-            echo json_encode(['success' => false, 'error' => 'Project::delete() returned false']);
-        }
+        echo json_encode(['success' => (bool)$result]);
+
     } catch (Exception $e) {
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     }
 
     exit;
-}
-
+}   
 function show($project)
 {
     header('Content-Type: application/json');
