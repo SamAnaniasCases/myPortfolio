@@ -73,13 +73,45 @@ $projects = $project->all();
             <div class="home-content">
                 <div class="dice">
                     <div class="roll" type="button">
-                        <div class="dice-container">
-                            <div class="face front"></div>
-                            <div class="face back"></div>
-                            <div class="face top"></div>
-                            <div class="face bottom"></div>
-                            <div class="face right"></div>
-                            <div class="face left"></div>
+                        <div class="dice-wrapper">
+                            <div class="dice-bounce-container">
+                                <div class="dice-container">
+                                    <div class="face front">
+                                        <span class="pip"></span>
+                                    </div>
+                                    <div class="face back">
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                    </div>
+                                    <div class="face top">
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                    </div>
+                                    <div class="face bottom">
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                    </div>
+                                    <div class="face right">
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                    </div>
+                                    <div class="face left">
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                        <span class="pip"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dice-shadow"></div>
                         </div>
                     </div>
                         <h3 class="word-display">Hello!</h3>

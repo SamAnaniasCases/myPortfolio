@@ -82,7 +82,6 @@
 
     .swiper-pagination-bullets::before{
         width: 95px;
-        transform: translateX(0);
     }
 
 
@@ -190,9 +189,7 @@
     EXPERIENCE
     ============================================== */
     .swiper-pagination-bullets::before{
-        top: 11.5px;
         width: 95px;
-        left: 45%;
     }
     
     
@@ -349,10 +346,6 @@
 
     .skill-card {
         padding: 40px 15px;
-    }
-
-    .swiper-pagination-bullets::before{
-        left: 44%;
     }
 
 
@@ -632,8 +625,6 @@
 
     .swiper-pagination-bullets::before {
         width: 132px;
-        top: 11px;
-        left: 34%;
     }
 
 
