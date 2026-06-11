@@ -38,82 +38,61 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===== Open close in modal =====
 const portfolioCardsWithModals = document.querySelectorAll(".portfolio-container .card-with-modal");
 
+// Helper functions for smooth modal transitions
+const openModal = (backdrop) => {
+    backdrop.style.display = "flex";
+    backdrop.offsetHeight; // Force layout reflow
+    backdrop.classList.add("open");
+    document.body.style.overflow = "hidden"; // disable scroll
+};
+
+const closeModal = (backdrop) => {
+    backdrop.classList.remove("open");
+    setTimeout(() => {
+        backdrop.style.display = "none";
+    }, 400); // 400ms matches transition duration
+    document.body.style.overflow = "auto"; // re-enable scroll
+};
+
 portfolioCardsWithModals.forEach((portfolioCardWithModal) => {
     const portfolioCard = portfolioCardWithModal.querySelector(".portfolio-card");
     const portfolioBackdrop = portfolioCardWithModal.querySelector(".portfolio-modal-backdrop");
-    const portfolioModal = portfolioCardWithModal.querySelector(".portfolio-modal");
     const modalCloseBtn = portfolioCardWithModal.querySelector(".modal-close-btn");
 
     portfolioCard.addEventListener("click", () => {
-        portfolioBackdrop.style.display = "flex";
-
-        setTimeout(() => {
-        portfolioBackdrop.classList.add("active");
-        }, 300);
-
-        setTimeout(() => {
-        portfolioModal.classList.add("active");
-
-        }, 300);
+        openModal(portfolioBackdrop);
     });
 
-    modalCloseBtn.addEventListener("click", () =>{
-
-        setTimeout(() => {
-        portfolioBackdrop.style.display = "none";
-        
-        }, 500);
-
-        setTimeout(() => {
-        portfolioBackdrop.classList.remove("active");
-        portfolioModal.classList.remove("active");
-
-        }, 100);
+    modalCloseBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeModal(portfolioBackdrop);
     });
 
+    portfolioBackdrop.addEventListener("click", (e) => {
+        if (e.target === portfolioBackdrop) {
+            closeModal(portfolioBackdrop);
+        }
+    });
 });
 
 
 // ===== ADD PROJECTS OPEN AND CLOSE =====
 const addProjectBtn = document.getElementById("addProjectBtn");
 const addProjectBackdrop = document.getElementById("addProjectModal");
-const addProjectModal = addProjectBackdrop.querySelector(".portfolio-modal");
 const closeAddModalBtn = document.getElementById("closeAddModal");
 
 addProjectBtn.addEventListener("click", () => {
-    addProjectBackdrop.style.display = "flex";
-
-    setTimeout(() => {
-        addProjectBackdrop.classList.add("active");
-    }, 300);
-
-    setTimeout(() => {
-        addProjectModal.classList.add("active");
-    }, 300);
+    openModal(addProjectBackdrop);
 });
 
 closeAddModalBtn.addEventListener("click", () => {
-    setTimeout(() => {
-        addProjectBackdrop.style.display = "none";
-    }, 500);
-
-    setTimeout(() => {
-        addProjectBackdrop.classList.remove("active");
-        addProjectModal.classList.remove("active");
-    }, 100);
+    closeModal(addProjectBackdrop);
 });
 
 // click outside modal to close
 addProjectBackdrop.addEventListener("click", (e) => {
     if (e.target === addProjectBackdrop) {
-        setTimeout(() => {
-            addProjectBackdrop.style.display = "none";
-        }, 500);
-
-        setTimeout(() => {
-            addProjectBackdrop.classList.remove("active");
-            addProjectModal.classList.remove("active");
-        }, 100);
+        closeModal(addProjectBackdrop);
     }
 });
 
@@ -138,40 +117,20 @@ document.querySelectorAll(".edit-btn").forEach((btn) => {
     editForm.querySelector("#editDescription").value = description;
     editForm.querySelector("#editExistingImage").value = image;
 
-    editModal.style.display = "flex";
-    setTimeout(() => editModal.classList.add("active"), 10);
-  });
-});
-
-document.querySelectorAll(".edit-btn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    const id = btn.dataset.id;
-    const title = btn.dataset.title;
-    const category = btn.dataset.category;
-    const description = btn.dataset.description;
-    const image = btn.dataset.image;
-
-    const editModal = document.getElementById("editProjectModal");
-    const editForm = document.getElementById("editProjectForm");
-
-    editForm.querySelector("#editId").value = id;
-    editForm.querySelector("#editCategory").value = category;
-    editForm.querySelector("#editTitle").value = title;
-    editForm.querySelector("#editDescription").value = description;
-    editForm.querySelector("#editExistingImage").value = image;
-
-    editModal.style.display = "flex";
-    setTimeout(() => editModal.classList.add("active"), 10);
+    openModal(editModal);
   });
 });
 
 // Close modal on close button
+const editProjectModalEl = document.getElementById("editProjectModal");
 document.getElementById("closeEditModal").addEventListener("click", () => {
-  const editModal = document.getElementById("editProjectModal");
-  editModal.classList.remove("active");
-  setTimeout(() => (editModal.style.display = "none"), 300);
+  closeModal(editProjectModalEl);
+});
+
+editProjectModalEl.addEventListener("click", (e) => {
+  if (e.target === editProjectModalEl) {
+    closeModal(editProjectModalEl);
+  }
 });
 
 
@@ -194,8 +153,7 @@ document.getElementById("editProjectForm").addEventListener("submit", async (e) 
       alert("✅ Project updated successfully!");
 
       const modal = document.getElementById("editProjectModal");
-      modal.classList.remove("active");
-      setTimeout(() => (modal.style.display = "none"), 300);
+      closeModal(modal);
 
       const id = formData.get("id");
       const title = formData.get("title");

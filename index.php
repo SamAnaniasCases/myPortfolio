@@ -22,6 +22,7 @@ $projects = $project->all();
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/portfolio.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/resume.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/animations.css">
 
 
     <!-- https://remixicon.com/ for icon -->
@@ -73,7 +74,7 @@ $projects = $project->all();
             <div class="home-content">
                 <div class="dice">
                     <div class="roll" type="button">
-                        <div class="dice-wrapper">
+                        <div class="dice-wrapper reveal-scale reveal-onload reveal-delay-1">
                             <div class="dice-bounce-container">
                                 <div class="dice-container">
                                     <div class="face front">
@@ -114,8 +115,8 @@ $projects = $project->all();
                             <div class="dice-shadow"></div>
                         </div>
                     </div>
-                        <h3 class="word-display">Hello!</h3>
-                        <h3 class="short-tagline">Let’s make something amazing together.</h3>
+                        <h3 class="word-display reveal-up reveal-onload reveal-delay-2">Hello!</h3>
+                        <h3 class="short-tagline reveal-up reveal-onload reveal-delay-3">Let’s make something amazing together.</h3>
                 </div>
             </div>
         </div>
@@ -125,23 +126,23 @@ $projects = $project->all();
 
     <section class="about" id="about">
         <div class="about-container">
-            <img src="<?php echo BASE_URL; ?>assets/images/SAM.jpg" alt="confusedmf">
+            <img src="<?php echo BASE_URL; ?>assets/images/SAM.jpg" class="reveal-left" alt="confusedmf">
 
             <div class="about-info">
 
-                <div class="about-txt">
+                <div class="about-txt reveal-up reveal-delay-1">
                     <h3>Hi, I'm</h3>
                     <h1>Sam Cases</h1>
                     <span>Web Developer</span>
                 </div>
 
-                <div class="about-btn">
+                <div class="about-btn reveal-up reveal-delay-2">
 
                     <div class="btn"><a href="" id="openResume">Read More</a></div>
                     <div class="btn"><a href="#contacts">Contacts</a></div>
                 </div>
 
-                <div class="about-socials">
+                <div class="about-socials reveal-up reveal-delay-3">
                     <a href="https://github.com/SamAnaniasCases" target="_blank"><i class="ri-github-fill"></i></a>
                     <a href="https://www.facebook.com/samananias.cases" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
 
@@ -353,12 +354,12 @@ $projects = $project->all();
     <!-- ===== Experience section ====== -->
 
     <section class="experience section" id="experience">
-        <h2 class="section-title" data-title="My Experience">What Can I Do</h2>
+        <h2 class="section-title reveal-up" data-title="My Experience">What Can I Do</h2>
 
         <div class="container">
             <div class="swiper exp-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card reveal-up reveal-delay-1">
                         <h4 class="exp-subtitle">Beginner</h4>
 
                         <h3 class="exp-title">Java</h3>
@@ -369,7 +370,7 @@ $projects = $project->all();
                         </a> -->
                     </div>
 
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card reveal-up reveal-delay-2">
                         <h4 class="exp-subtitle">Intermediate</h4>
 
                         <h3 class="exp-title">CSS</h3>
@@ -380,7 +381,7 @@ $projects = $project->all();
                         </a> -->
                     </div>
 
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card reveal-up reveal-delay-3">
                         <h4 class="exp-subtitle">Beginner</h4>
 
                         <h3 class="exp-title">Javascript</h3>
@@ -391,7 +392,7 @@ $projects = $project->all();
                         </a> -->
                     </div>
 
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card reveal-up reveal-delay-4">
                         <h4 class="exp-subtitle">Beginner</h4>
 
                         <h3 class="exp-title">C</h3>
@@ -402,7 +403,7 @@ $projects = $project->all();
                         </a> -->
                     </div>
 
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card reveal-up reveal-delay-5">
                         <h4 class="exp-subtitle">Intermediate</h4>
 
                         <h3 class="exp-title">HTML</h3>
@@ -424,11 +425,11 @@ $projects = $project->all();
     style="padding-top: 1rem;">
         <div class="container sue-sub-container">
             <div class="sue-wrapper">
-                <h2 class="section-title" data-title="My Works">Projects</h2>
+                <h2 class="section-title reveal-up" data-title="My Works">Projects</h2>
 
 
             <!-- PROJECT NAV -->
-            <div class="portfolio-tabs">
+            <div class="portfolio-tabs reveal-up reveal-delay-1">
             <a class="tab-btn active" data-filter="all">All</a>
 
             <?php
@@ -497,8 +498,13 @@ $projects = $project->all();
             <!-- CONTENT PROJECTS -->
             <div class="section-content">
                 <div class="portfolio-container">
-                    <?php foreach ($projects as $row): ?>
-                        <div class="card-with-modal <?php echo strtolower(str_replace(' ', '-', $row['category'])); ?>">
+                    <?php 
+                    $p_delay = 1;
+                    foreach ($projects as $row): 
+                        $delay_class = "reveal-up reveal-delay-" . min($p_delay, 8);
+                        $p_delay++;
+                    ?>
+                        <div class="card-with-modal <?php echo strtolower(str_replace(' ', '-', $row['category'])); ?> <?php echo $delay_class; ?>">
                             <div class="portfolio-card">
                                 <div class="card-img">
                                     <img src="<?php echo BASE_URL . ($row['image'] ?: 'uploads/default.jpg'); ?>" alt="">
@@ -591,11 +597,11 @@ $projects = $project->all();
 
     <!-- ===== Contact Section ===== -->
     <section class="contact section" id="contacts">
-        <h2 class="section-title" data-title="Hop on">Contact Me</h2>
+        <h2 class="section-title reveal-up" data-title="Hop on">Contact Me</h2>
 
         <div class="contact-container grid">
 
-            <div class="contact-content">
+            <div class="contact-content reveal-left">
 
                 <div class="contact-card">
                     <span class="contact-icon">
@@ -631,7 +637,7 @@ $projects = $project->all();
                 </div>
             </div>
 
-            <form action="" class="contact-form grid" id="contact-form">
+            <form action="" class="contact-form grid reveal-right" id="contact-form">
                 <div class="contact-form-group grid">
 
                     <div class="contact-form-div">
@@ -694,6 +700,7 @@ $projects = $project->all();
 <script src="<?php echo BASE_URL; ?>assets/js/myPortDice.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/swiper.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/resumejs.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/scrollReveal.js"></script>
 
 
 </body>

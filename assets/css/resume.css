@@ -1,3 +1,7 @@
+:root {
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .resume-tabs{
     display: flex;
     justify-content: center;
@@ -49,9 +53,20 @@
     justify-content: center;
     margin-bottom: 25px;
     display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s var(--ease-out-quint), transform 0.3s var(--ease-out-quint);
+    will-change: opacity, transform;
 }
 .resume-tab-content.active{
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+.resume-tab-content.fading-out{
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.15s ease-in, transform 0.15s ease-in;
 }
 
 .education .resume-line{
@@ -218,7 +233,7 @@
 
 /* Resume pop-up */
 .resume-modal {
-  display: none;
+  display: block;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -227,7 +242,16 @@
   height: 100%;
   overflow-y: auto;
   background-color: var(--glass-color);
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out-quint), visibility 0.4s var(--ease-out-quint);
+}
+
+.resume-modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .resume-modal-content {
@@ -237,8 +261,18 @@
   border-radius: 1rem;
   width: 90%;
   max-width: 1000px;
-  box-shadow: 0 0 20px var(--shadow-color);
-  animation: fadeInUp 0.4s ease;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  transition: opacity 0.4s var(--ease-out-quint), 
+              transform 0.4s var(--ease-out-quint), 
+              height 0.35s var(--ease-out-quint);
+  will-change: opacity, transform, height;
+}
+
+.resume-modal.open .resume-modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .close-resume {
@@ -253,14 +287,14 @@
   color: var(--gradient-swap);
 }
 
-/* Small animation */
-@keyframes fadeInUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+/* Accessibility: respect user prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .resume-modal,
+  .resume-modal-content,
+  .resume-tab-content,
+  .resume-tab-content.fading-out {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
