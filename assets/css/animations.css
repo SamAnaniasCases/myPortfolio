@@ -1,0 +1,99 @@
+/* ==============================================
+   PREMIUM SCROLL-BASED REVEAL ANIMATIONS
+   ============================================== */
+
+:root {
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enable transitions for reveal items */
+.js-reveal-active .reveal-fade,
+.js-reveal-active .reveal-up,
+.js-reveal-active .reveal-down,
+.js-reveal-active .reveal-left,
+.js-reveal-active .reveal-right,
+.js-reveal-active .reveal-scale {
+    transition: opacity 0.85s var(--ease-out-quart), 
+                transform 0.85s var(--ease-out-quart), 
+                filter 0.85s var(--ease-out-quart);
+    will-change: transform, opacity;
+}
+
+/* Initial hidden states (applied only when NOT revealed) */
+.js-reveal-active .reveal-fade:not(.revealed),
+.js-reveal-active .reveal-up:not(.revealed),
+.js-reveal-active .reveal-down:not(.revealed),
+.js-reveal-active .reveal-left:not(.revealed),
+.js-reveal-active .reveal-right:not(.revealed),
+.js-reveal-active .reveal-scale:not(.revealed) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Specific initial transforms */
+.js-reveal-active .reveal-up:not(.revealed) {
+    transform: translateY(30px);
+}
+
+.js-reveal-active .reveal-down:not(.revealed) {
+    transform: translateY(-30px);
+}
+
+.js-reveal-active .reveal-left:not(.revealed) {
+    transform: translateX(35px);
+}
+
+.js-reveal-active .reveal-right:not(.revealed) {
+    transform: translateX(-35px);
+}
+
+.js-reveal-active .reveal-scale:not(.revealed) {
+    transform: scale(0.95);
+}
+
+/* Staggered Delay utilities (only active while waiting to reveal) */
+.js-reveal-active .reveal-delay-1:not(.revealed) { transition-delay: 80ms; }
+.js-reveal-active .reveal-delay-2:not(.revealed) { transition-delay: 160ms; }
+.js-reveal-active .reveal-delay-3:not(.revealed) { transition-delay: 240ms; }
+.js-reveal-active .reveal-delay-4:not(.revealed) { transition-delay: 320ms; }
+.js-reveal-active .reveal-delay-5:not(.revealed) { transition-delay: 400ms; }
+.js-reveal-active .reveal-delay-6:not(.revealed) { transition-delay: 480ms; }
+.js-reveal-active .reveal-delay-7:not(.revealed) { transition-delay: 560ms; }
+.js-reveal-active .reveal-delay-8:not(.revealed) { transition-delay: 640ms; }
+
+/* Dynamic inline CSS delay support */
+.js-reveal-active [data-delay]:not(.revealed) {
+    transition-delay: calc(var(--delay) * 1ms);
+}
+
+/* Mobile-responsive overrides: reduce transition amplitude to fit small screens */
+@media (max-width: 768px) {
+    .js-reveal-active .reveal-up:not(.revealed) {
+        transform: translateY(15px);
+    }
+    .js-reveal-active .reveal-down:not(.revealed) {
+        transform: translateY(-15px);
+    }
+    .js-reveal-active .reveal-left:not(.revealed) {
+        transform: translateX(15px);
+    }
+    .js-reveal-active .reveal-right:not(.revealed) {
+        transform: translateX(-15px);
+    }
+}
+
+/* Accessibility: respect user prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .js-reveal-active .reveal-fade,
+    .js-reveal-active .reveal-up,
+    .js-reveal-active .reveal-down,
+    .js-reveal-active .reveal-left,
+    .js-reveal-active .reveal-right,
+    .js-reveal-active .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        filter: none !important;
+    }
+}

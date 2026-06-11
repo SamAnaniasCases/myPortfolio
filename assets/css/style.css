@@ -53,6 +53,16 @@
 
     --gradient-swap: #F4D800;
 
+    /* Dice design tokens */
+    --dice-bg: radial-gradient(circle at 30% 30%, #4e483e 0%, #332f29 45%, #221f1b 75%, #151311 100%);
+    --dice-border: #151311;
+    --dice-shadow: inset 2px 2px 2.5px rgba(255, 255, 255, 0.15), inset -2px -2px 2.5px rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(0, 0, 0, 0.5);
+    --dice-pip-color: var(--first-color);
+    --dice-pip-light: rgba(255, 255, 255, 0.45);
+    --dice-pip-dark: rgba(0, 0, 0, 0.65);
+    --dice-pip-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.65), 0.5px 0.5px 1px rgba(255, 255, 255, 0.15), -0.5px -0.5px 1px rgba(0, 0, 0, 0.5);
+    --dice-shadow-color: rgba(0, 0, 0, 0.7);
+    --dice-gloss: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 35%, rgba(255, 255, 255, 0) 50%);
 }
 :root{
 
@@ -84,6 +94,17 @@
     --gradient-start: #EF2B05;
     --gradient-end: #F4D800;
     --gradient-swap: #EF2B05;
+
+    /* Dice design tokens */
+    --dice-bg: radial-gradient(circle at 30% 30%, #ffffff 0%, #fcfbf7 40%, #f4eee1 70%, #dcd3be 100%);
+    --dice-border: #dcd3be;
+    --dice-shadow: inset 2.5px 2.5px 3px rgba(255, 255, 255, 0.95), inset -2.5px -2.5px 3px rgba(61, 48, 15, 0.18), inset 0 0 12px rgba(61, 48, 15, 0.08);
+    --dice-pip-color: var(--first-color);
+    --dice-pip-light: rgba(255, 255, 255, 0.35);
+    --dice-pip-dark: rgba(0, 0, 0, 0.5);
+    --dice-pip-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.45), 1px 1px 1px rgba(255, 255, 255, 0.8), -0.5px -0.5px 1px rgba(61, 48, 15, 0.25);
+    --dice-shadow-color: rgba(61, 48, 15, 0.25);
+    --dice-gloss: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.05) 35%, rgba(255, 255, 255, 0) 50%);
 
     /* --- FONT FAMILY --- */
     --body-font: 'Jost', sans-serif;
@@ -479,136 +500,264 @@ section {
     max-width: 520px;
 }
 
-/* --- DICE --- */
-.dice{
+/* --- DICE SYSTEM --- */
+.dice {
     display: flex;
     flex-direction: column;
-    padding: 8rem 0 4rem;
-    gap: 5px;
+    padding: 6rem 0 3rem; /* Adjusted vertical padding to give breathing room for bounce */
+    gap: 20px;
     left: 50%;
     align-items: center;
     justify-content: center;
 }
 
-.dice-container{
+.dice-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    margin-bottom: 2.5rem; /* Increased vertical spacing to prevent overlap */
+}
+
+/* Bounce and shadow triggers */
+.dice-wrapper.rolling .dice-bounce-container {
+    animation: dice-bounce 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.dice-wrapper.rolling .dice-shadow {
+    animation: shadow-scale 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.dice-bounce-container {
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.dice-container {
     position: relative;
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
-    transition: 1s ease;
+    transition: transform 1.8s cubic-bezier(0.1, 0.8, 0.3, 1);
+    will-change: transform;
 }
 
-.face{
+.face {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 101px;
+    height: 101px;
+    margin: -0.5px;
     border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e1e1e1 70%, #bcbcbc 100%);
+    border: 1px solid var(--dice-border);
+    background: var(--dice-bg);
     transform-style: preserve-3d;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15),
-              inset 2px 2px 5px rgba(255, 255, 255, 0.5),
-              0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--dice-shadow);
+    backface-visibility: hidden;
+    contain: paint;
+    outline: 1px solid transparent;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 14px;
+    align-items: center;
+    justify-items: center;
 }
 
-.face::before{
+/* Subtle highlights for 3D realism */
+.face::before {
     position: absolute;
     content: '';
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #bdbdbd, #dcdcdc);
-    transform: translateZ(-1px);
+    inset: 0;
+    border-radius: 14px;
+    background: var(--dice-gloss);
+    pointer-events: none;
+    z-index: 2;
 }
 
-.face::after{
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 50%;
-    width: 18px;
-    height: 18px;
+/* Style for pips */
+.pip {
+    display: block;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #000 0%, #111 70%, #333 100%);
-    box-shadow:
-        inset 1px 1px 3px rgba(255, 255, 255, 0.3),
-        inset -2px -2px 5px rgba(0, 0, 0, 0.8);
-
+    background: radial-gradient(circle at 35% 35%, var(--dice-pip-light) 0%, var(--dice-pip-color) 65%, var(--dice-pip-dark) 100%);
+    box-shadow: var(--dice-pip-shadow);
 }
 
-/* --- DICE FACE --- */
-.front{
-    transform: translateZ(50px);
+/* 3D Position of faces */
+.front  { transform: rotateY(0deg) translateZ(49.2px); }
+.back   { transform: rotateY(180deg) translateZ(49.2px); }
+.top    { transform: rotateX(90deg) translateZ(49.2px); }
+.bottom { transform: rotateX(-90deg) translateZ(49.2px); }
+.right  { transform: rotateY(90deg) translateZ(49.2px); }
+.left   { transform: rotateY(-90deg) translateZ(49.2px); }
+
+/* Pip Grid Placements */
+/* Front: 1 pip (center) */
+.front .pip { grid-area: 2 / 2; }
+
+/* Top: 2 pips (diagonal) */
+.top .pip:nth-child(1) { grid-area: 1 / 1; }
+.top .pip:nth-child(2) { grid-area: 3 / 3; }
+
+/* Left: 3 pips (diagonal) */
+.left .pip:nth-child(1) { grid-area: 1 / 1; }
+.left .pip:nth-child(2) { grid-area: 2 / 2; }
+.left .pip:nth-child(3) { grid-area: 3 / 3; }
+
+/* Right: 4 pips (corners) */
+.right .pip:nth-child(1) { grid-area: 1 / 1; }
+.right .pip:nth-child(2) { grid-area: 1 / 3; }
+.right .pip:nth-child(3) { grid-area: 3 / 1; }
+.right .pip:nth-child(4) { grid-area: 3 / 3; }
+
+/* Bottom: 5 pips (corners + center) */
+.bottom .pip:nth-child(1) { grid-area: 1 / 1; }
+.bottom .pip:nth-child(2) { grid-area: 1 / 3; }
+.bottom .pip:nth-child(3) { grid-area: 2 / 2; }
+.bottom .pip:nth-child(4) { grid-area: 3 / 1; }
+.bottom .pip:nth-child(5) { grid-area: 3 / 3; }
+
+/* Back: 6 pips (sides) */
+.back .pip:nth-child(1) { grid-area: 1 / 1; }
+.back .pip:nth-child(2) { grid-area: 1 / 3; }
+.back .pip:nth-child(3) { grid-area: 2 / 1; }
+.back .pip:nth-child(4) { grid-area: 2 / 3; }
+.back .pip:nth-child(5) { grid-area: 3 / 1; }
+.back .pip:nth-child(6) { grid-area: 3 / 3; }
+
+/* Dynamic Shadow */
+.dice-shadow {
+    position: absolute;
+    bottom: -15px;
+    left: 10px;
+    width: 80px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--dice-shadow-color);
+    filter: blur(5px);
+    z-index: -1;
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+    will-change: transform, opacity, filter;
 }
 
-.back{
-    transform: rotateX(180deg) translateZ(50px);
-}
-
-.top{
-    transform: rotateX(90deg) translateZ(50px);
-}
-
-.bottom{
-    transform: rotateX(-90deg) translateZ(50px);
-}
-
-.right{
-    transform: rotateY(90deg) translateZ(50px);
-}
-
-.left{
-    transform: rotateY(-90deg) translateZ(50px);
-}
-
-/* --- DICE DOTS --- */
-.front::after{
-    width: 30px;
-    height: 30px;
-    margin: -15px 0 0 -15px;
-
-}
-
-.back::after{
-    margin: -35px 0 0 -30px;
-    /* dot sa dice */
-    box-shadow: 40px 0 black, 
-                0 25px black,
-                40px 25px black,
-                0 50px black,
-                40px 50px black; 
-    
-}
-
-.top::after{
-    margin: -30px 0 0 -30px;
-    box-shadow: 40px 40px black;
-
-}
-
-.bottom::after{
-    margin: -36px 0 0 -36px;
-    box-shadow: 26px 26px black,
-                52px 52px black,
-                52px 0 black,
-                0 52px black;
-}
-
-.right::after{
-    margin: -30px 0 0 -30px;
-    box-shadow: 40px 0 black,
-                0 40px black,
-                40px 40px black;
-}
-
-.left::after{
-    margin: -35px 0 0 -35px;
-    box-shadow: 25px 25px black, 50px 50px black;
-
-}
-
-.roll{
+.roll {
     cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* --- PHYSICS BOUNCE ANIMATION --- */
+@keyframes dice-bounce {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-out */
+    }
+    15% {
+        transform: translateY(-70px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); /* ease-in */
+    }
+    30% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-out */
+    }
+    48% {
+        transform: translateY(-30px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); /* ease-in */
+    }
+    64% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-out */
+    }
+    78% {
+        transform: translateY(-12px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); /* ease-in */
+    }
+    90% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-out */
+    }
+    96% {
+        transform: translateY(-4px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); /* ease-in */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* --- DYNAMIC SHADOW SCALING --- */
+@keyframes shadow-scale {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    15% {
+        transform: scale(0.4);
+        opacity: 0.2;
+        filter: blur(10px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    30% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    48% {
+        transform: scale(0.6);
+        opacity: 0.35;
+        filter: blur(8px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    64% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    78% {
+        transform: scale(0.8);
+        opacity: 0.5;
+        filter: blur(6px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    90% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    96% {
+        transform: scale(0.9);
+        opacity: 0.65;
+        filter: blur(5px);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+    }
+}
+
+/* Accessibility: prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+    .dice-container {
+        transition: none !important;
+    }
+    .dice-wrapper.rolling .dice-bounce-container {
+        animation: none !important;
+    }
+    .dice-wrapper.rolling .dice-shadow {
+        animation: none !important;
+    }
 }
 
 
