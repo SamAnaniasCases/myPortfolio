@@ -1,41 +1,59 @@
 <?php
-require_once __DIR__ . '/../../config/Database.php';
 
-class Project {
+namespace App\Models;
+
+use PDO;
+
+class Project
+{
     private $conn;
     private $table = 'projectmain_db';
 
-    public function __construct() {
-        $db = new Database();
+    public function __construct()
+    {
+        $db = new \App\Config\Database();
         $this->conn = $db->connect();
     }
 
-    // READ ALL
-    public function all() {
-        $sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC";
+    /**
+     * Read all projects
+     */
+    public function all()
+    {
+        $columns = 'id, title, category, description, image, created_at';
+        $sql = "SELECT {$columns} FROM {$this->table} ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // CREATE
-    public function create($data) {
+    /**
+     * Create a new project
+     */
+    public function create($data)
+    {
         $sql = "INSERT INTO {$this->table} (category, title, description, image) 
                 VALUES (:category, :title, :description, :image)";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute($data);
     }
 
-    // READ ONE
-    public function show($id) {
-        $sql = "SELECT * FROM {$this->table} WHERE id = :id";
+    /**
+     * Read a specific project by ID
+     */
+    public function show($id)
+    {
+        $sql = "SELECT id, title, category, description, image, created_at FROM {$this->table} WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // UPDATE
-    public function update($data) {
+    /**
+     * Update a project
+     */
+    public function update($data)
+    {
         $sql = "UPDATE {$this->table} 
                 SET category = :category, title = :title, description = :description, image = :image 
                 WHERE id = :id";
@@ -43,11 +61,13 @@ class Project {
         return $stmt->execute($data);
     }
 
-    // DELETE
-    public function delete($id) {
+    /**
+     * Delete a project
+     */
+    public function delete($id)
+    {
         $sql = "DELETE FROM {$this->table} WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute(['id' => $id]);
     }
 }
-?>

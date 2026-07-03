@@ -1,3 +1,12 @@
 # Antigravity / ECC Workspace Configuration Directories
 .agent/
 .agents/
+
+# Composer dependencies
+/vendor/
+
+# Environment credentials — NEVER commit
+.env
+
+# PHPStan cache
+.phpstan.cache/

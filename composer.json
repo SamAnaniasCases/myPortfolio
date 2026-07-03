@@ -1,0 +1,21 @@
+{
+    "name": "ojt/my-portfolio",
+    "description": "my portfolio",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Geb",
+            "email": "samananiascases@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.0",
+        "squizlabs/php_codesniffer": "^3.7"
+    }
+}

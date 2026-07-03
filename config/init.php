@@ -1,16 +1,40 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) session_start();
 
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
-$host = $_SERVER['HTTP_HOST'];
+/**
+ * Application Bootstrap and Autoloader
+ */
 
-// If running locally (e.g. localhost), include your folder
-if (strpos($host, 'localhost') !== false) {
-    $host .= '/myPortfolio/';
-} else {
-    // On Wasmer (or any live server), use root path
-    $host .= '/';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
-define('BASE_URL', $protocol . $host);
-?>
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+// Load configuration
+$config = require __DIR__ . '/config.php';
+
+// Load unified database PDO class
+require_once __DIR__ . '/Database.php';
+
+// Dynamically set BASE_URL based on environment
+$baseUrl = $config['app']['base_url'];
+define('BASE_URL', $baseUrl);
+
+// Register PSR-4 Autoloader for namespace "App" mapping to "/src"
+spl_autoload_register(function ($class) {
+    $prefix = 'App\\';
+    $base_dir = __DIR__ . '/../src/';
+
+    $len = strlen($prefix);
+    if (strncmp($prefix, $class, $len) !== 0) {
+        return; // Move to next registered autoloader
+    }
+
+    $relative_class = substr($class, $len);
+    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+    if (file_exists($file)) {
+        require_once $file;
+    }
+});

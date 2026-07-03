@@ -1,79 +1,44 @@
 <?php
-// class Database {
-//     private $host = 'db.fr-pari1.bengt.wasmernet.com';
-//     private $db_name = 'project2_db';
-//     private $username = '5cb8c5ec7359800003114b957f49';
-//     private $password = '06915cb8-c5ec-7503-8000-d3a1d912986b';
-//     private $port = "10272";
-//     private $conn;
 
-//     public function connect() {
-//         $this->conn = null;
-//         try {
-//             $this->conn = new PDO(
-//                 "mysql:host={$this->host};port={$this->port};dbname={$this->db_name}",
-//                 $this->username,
-//                 $this->password
-//             );
-//             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//         } catch (PDOException $e) {
-//             echo 'Connection Error: ' . $e->getMessage();
-//         }
-//         return $this->conn;
-//     }
-// }
+namespace App\Config;
 
-class Database {
+use PDO;
+use PDOException;
 
-    private $host;
-    private $db_name;
-    private $username;
-    private $password;
-    private $port;
-
+/**
+ * Database Connection Manager (PDO)
+ */
+class Database
+{
     private $conn;
 
-    public function __construct() {
-
-        // Detect if running on localhost
-        if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1') {
-
-            // 👉 Localhost Credentials
-            $this->host = 'localhost';
-            $this->db_name = 'project2_db';
-            $this->username = 'root';
-            $this->password = '';
-            $this->port = '3306';
-
-        } else {
-
-            // 👉 Production (Wasmer) Credentials
-            $this->host = 'db.fr-pari1.bengt.wasmernet.com';
-            $this->db_name = 'project2_db';
-            $this->username = '5cb8c5ec7359800003114b957f49';
-            $this->password = '06915cb8-c5ec-7503-8000-d3a1d912986b';
-            $this->port = '10272';
-        }
-    }
-
-    public function connect() {
+    public function connect()
+    {
         $this->conn = null;
+
+        // Load the single source of truth configuration
+        $config = require __DIR__ . '/config.php';
+
+        $host = $config['db']['host'];
+        $db_name = $config['db']['dbname'];
+        $username = $config['db']['username'];
+        $password = $config['db']['password'];
+        $port = $config['db']['port'];
 
         try {
             $this->conn = new PDO(
-                "mysql:host={$this->host};port={$this->port};dbname={$this->db_name}",
-                $this->username,
-                $this->password
+                "mysql:host={$host};port={$port};dbname={$db_name};charset=utf8mb4",
+                $username,
+                $password
             );
-
+            // Enforce exception-throwing error mode
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         } catch (PDOException $e) {
-            echo 'Connection Error: ' . $e->getMessage();
+            // In production, log errors instead of echoing to prevent leakage
+            error_log('Database Connection Error: ' . $e->getMessage());
+            die('A database error occurred. Please try again later.');
         }
 
         return $this->conn;
     }
 }
-
-?>

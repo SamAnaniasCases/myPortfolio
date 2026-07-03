@@ -188,7 +188,7 @@ document.querySelectorAll(".delete-btn").forEach((btn) => {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`${BASE_URL}admin/controller/projectController.php?action=delete`, {
+      const response = await fetch(`${BASE_URL}admin.php?action=delete-project`, {
 
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },

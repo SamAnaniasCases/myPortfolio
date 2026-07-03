@@ -20,7 +20,7 @@ unset($_SESSION['register_error']);
     <!--Main css-->
     <link rel="stylesheet" href="../../assets/css/style.css">
 
-    <link rel="stylesheet" href="../../assets/css/logincss.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
     <link rel="stylesheet" href="../../assets/css/responsive.css">
 
     <!-- https://remixicon.com/ for icon -->
@@ -40,7 +40,7 @@ unset($_SESSION['register_error']);
                     <i class="ri-home-5-line"></i>
                 </a>
 
-                <form action="<?php echo BASE_URL; ?>admin/controller/login.php" method="POST">
+                <form action="<?php echo BASE_URL; ?>admin.php?action=login" method="POST">
                     <h1>Login</h1>
                     <div class="input-box">
                         <input type="text" placeholder="Username" name="name" required>
@@ -84,7 +84,7 @@ unset($_SESSION['register_error']);
                 <i class="ri-home-5-line"></i>
             </a>
 
-            <form action="<?php echo BASE_URL; ?>admin/controller/register.php" method="POST">
+            <form action="<?php echo BASE_URL; ?>admin.php?action=register" method="POST">
                 <h1>Registration</h1>
                 <div class="input-box">
                     <input type="text" placeholder="Username" name="name" required>
@@ -161,8 +161,8 @@ unset($_SESSION['register_error']);
     
     <?php endif; ?>
 
-    <script src="<?php echo BASE_URL; ?>assets/js/forLogin.js"></script>
-    <script src="<?php echo BASE_URL; ?>assets/js/darkmodeJS.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/login.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/dark-mode.js"></script>
     
 </body>
 
